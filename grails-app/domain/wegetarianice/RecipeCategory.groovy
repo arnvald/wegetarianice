@@ -1,11 +1,11 @@
 package wegetarianice
 
-class ArticleCategory {
+class RecipeCategory {
 
   String name
   String description
 
-  static hasMany = [articles:Article]
+  static hasMany = [recipes:Recipe]
   static constraints = {
     name(blank: false)
     description(nullable: true)

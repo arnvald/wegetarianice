@@ -1,11 +1,15 @@
-        package wegetarianice
+package wegetarianice
 
 class Ingredient {
-    Food food
-    Dish dish
-    int priority
-    int quantity
+  //Food food
+  //Recipe recipe
+  int priority
+  int quantity
 
-    static constraints = {
-    }
+  static belongsTo = [food:Food,recipe:Recipe]
+
+  static constraints = {
+    priority(blank: false)
+    quantity(nullable: true)
+  }
 }

@@ -1,11 +1,12 @@
 package wegetarianice
 
 class Food {
-    String name
+  String name
 
-    static hasMany = [ingredients:Ingredient]
-    static belongsTo = [unit:Unit]
+  static hasMany = [ingredients:Ingredient]
+  static belongsTo = [unit:Unit]
 
-    static constraints = {
-    }
+  static constraints = {
+    name(blank: false, unique: true)
+  }
 }

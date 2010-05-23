@@ -23,31 +23,16 @@
             </div>
             </g:hasErrors>
             <g:form action="save" method="post" >
-                <div class="dialog">
-                    <table>
-                        <tbody>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="login"><g:message code="user.login.label" default="Login" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'login', 'errors')}">
-                                    <g:textField name="login" value="${userInstance?.login}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="password"><g:message code="user.password.label" default="Password" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'password', 'errors')}">
-                                    <g:textField name="password" value="${userInstance?.password}" />
-                                </td>
-                            </tr>
-                        
-                        </tbody>
-                    </table>
-                </div>
+              <div class="dialog">
+                <label for="login"><g:message code="user.login.label" default="Login" /></label>
+                <g:textField name="login" value="${userInstance?.login}" />
+                <br />
+                <label for="password"><g:message code="user.password.label" default="Password" /></label>
+                <g:passwordField name="password" value="${userInstance?.password}" />
+                <br />
+                <label for="password_confirmation"><g:message code="user.password_confirmation.label" default="Password_confirmation" /></label>
+                <g:passwordField name="password_confirmation" value="" />
+                <br />
                 <div class="buttons">
                     <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
