@@ -1,93 +1,111 @@
+<head>
+	<meta name="layout" content="main" />
+	<title>Edit User</title>
+</head>
 
-<%@ page import="wegetarianice.User" %>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}" />
-        <title><g:message code="default.edit.label" args="[entityName]" /></title>
-    </head>
-    <body>
-        <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLink(uri: '/')}">Home</a></span>
-            <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
-            <span class="menuButton"><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></span>
-        </div>
-        <div class="body">
-            <h1><g:message code="default.edit.label" args="[entityName]" /></h1>
-            <g:if test="${flash.message}">
-            <div class="message">${flash.message}</div>
-            </g:if>
-            <g:hasErrors bean="${userInstance}">
-            <div class="errors">
-                <g:renderErrors bean="${userInstance}" as="list" />
-            </div>
-            </g:hasErrors>
-            <g:form method="post" >
-                <g:hiddenField name="id" value="${userInstance?.id}" />
-                <g:hiddenField name="version" value="${userInstance?.version}" />
-                <div class="dialog">
-                    <table>
-                        <tbody>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="articles"><g:message code="user.articles.label" default="Articles" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'articles', 'errors')}">
-                                    
-<ul>
-<g:each in="${userInstance?.articles?}" var="a">
-    <li><g:link controller="article" action="show" id="${a.id}">${a?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="article" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'article.label', default: 'Article')])}</g:link>
+<body>
 
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="dishes"><g:message code="user.dishes.label" default="Dishes" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'dishes', 'errors')}">
-                                    
-<ul>
-<g:each in="${userInstance?.dishes?}" var="d">
-    <li><g:link controller="dish" action="show" id="${d.id}">${d?.encodeAsHTML()}</g:link></li>
-</g:each>
-</ul>
-<g:link controller="dish" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'dish.label', default: 'Dish')])}</g:link>
+	<div class="nav">
+		<span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
+		<span class="menuButton"><g:link class="list" action="list">User List</g:link></span>
+		<span class="menuButton"><g:link class="create" action="create">New User</g:link></span>
+	</div>
 
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="login"><g:message code="user.login.label" default="Login" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'login', 'errors')}">
-                                    <g:textField name="login" value="${userInstance?.login}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                  <label for="password"><g:message code="user.password.label" default="Password" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: userInstance, field: 'password', 'errors')}">
-                                    <g:textField name="password" value="${userInstance?.password}" />
-                                </td>
-                            </tr>
-                        
-                        </tbody>
-                    </table>
-                </div>
-                <div class="buttons">
-                    <span class="button"><g:actionSubmit class="save" action="update" value="${message(code: 'default.button.update.label', default: 'Update')}" /></span>
-                    <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
-                </div>
-            </g:form>
-        </div>
-    </body>
-</html>
+	<div class="body">
+		<h1>Edit User</h1>
+		<g:if test="${flash.message}">
+		<div class="message">${flash.message}</div>
+		</g:if>
+		<g:hasErrors bean="${person}">
+		<div class="errors">
+			<g:renderErrors bean="${person}" as="list" />
+		</div>
+		</g:hasErrors>
+
+		<div class="prop">
+			<span class="name">ID:</span>
+			<span class="value">${person.id}</span>
+		</div>
+
+		<g:form>
+			<input type="hidden" name="id" value="${person.id}" />
+			<input type="hidden" name="version" value="${person.version}" />
+			<div class="dialog">
+				<table>
+				<tbody>
+
+					<tr class="prop">
+						<td valign="top" class="name"><label for="username">Login Name:</label></td>
+						<td valign="top" class="value ${hasErrors(bean:person,field:'username','errors')}">
+							<input type="text" id="username" name="username" value="${person.username?.encodeAsHTML()}"/>
+						</td>
+					</tr>
+
+					<tr class="prop">
+						<td valign="top" class="name"><label for="userRealName">Full Name:</label></td>
+						<td valign="top" class="value ${hasErrors(bean:person,field:'userRealName','errors')}">
+							<input type="text" id="userRealName" name="userRealName" value="${person.userRealName?.encodeAsHTML()}"/>
+						</td>
+					</tr>
+
+					<tr class="prop">
+						<td valign="top" class="name"><label for="passwd">Password:</label></td>
+						<td valign="top" class="value ${hasErrors(bean:person,field:'passwd','errors')}">
+							<input type="password" id="passwd" name="passwd" value="${person.passwd?.encodeAsHTML()}"/>
+						</td>
+					</tr>
+
+					<tr class="prop">
+						<td valign="top" class="name"><label for="enabled">Enabled:</label></td>
+						<td valign="top" class="value ${hasErrors(bean:person,field:'enabled','errors')}">
+							<g:checkBox name="enabled" value="${person.enabled}"/>
+						</td>
+					</tr>
+
+					<tr class="prop">
+						<td valign="top" class="name"><label for="description">Description:</label></td>
+						<td valign="top" class="value ${hasErrors(bean:person,field:'description','errors')}">
+							<input type="text" id="description" name="description" value="${person.description?.encodeAsHTML()}"/>
+						</td>
+					</tr>
+
+					<tr class="prop">
+						<td valign="top" class="name"><label for="email">Email:</label></td>
+						<td valign="top" class="value ${hasErrors(bean:person,field:'email','errors')}">
+							<input type="text" id="email" name="email" value="${person?.email?.encodeAsHTML()}"/>
+						</td>
+					</tr>
+
+					<tr class="prop">
+						<td valign="top" class="name"><label for="emailShow">Show Email:</label></td>
+						<td valign="top" class="value ${hasErrors(bean:person,field:'emailShow','errors')}">
+							<g:checkBox name="emailShow" value="${person.emailShow}"/>
+						</td>
+					</tr>
+
+					<tr class="prop">
+						<td valign="top" class="name"><label for="authorities">Roles:</label></td>
+						<td valign="top" class="value ${hasErrors(bean:person,field:'authorities','errors')}">
+							<ul>
+							<g:each var="entry" in="${roleMap}">
+								<li>${entry.key.authority.encodeAsHTML()}
+									<g:checkBox name="${entry.key.authority}" value="${entry.value}"/>
+								</li>
+							</g:each>
+							</ul>
+						</td>
+					</tr>
+
+				</tbody>
+				</table>
+			</div>
+
+			<div class="buttons">
+				<span class="button"><g:actionSubmit class="save" value="Update" /></span>
+				<span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
+			</div>
+
+		</g:form>
+
+	</div>
+</body>
