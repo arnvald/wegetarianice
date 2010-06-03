@@ -38,7 +38,7 @@ grails.scaffolding.templates.domainSuffix = 'Instance'
 // Set to false to use the new Grails 1.2 JSONBuilder in the render method
 grails.json.legacy.builder=false
 // enabled native2ascii conversion of i18n properties files
-grails.enable.native2ascii = true
+grails.enable.native2ascii = false
 // whether to install the java.util.logging bridge for sl4j. Disable fo AppEngine!
 grails.logging.jul.usebridge = true
 // packages to include in Spring bean scanning
@@ -85,3 +85,13 @@ log4j = {
 
 
      
+
+//log4j.logger.org.springframework.security='off,stdout'
+
+//log4j.logger.org.springframework.security='off,stdout'
+
+//log4j.logger.org.springframework.security='off,stdout'
+
+//log4j.logger.org.springframework.security='off,stdout'
+
+//log4j.logger.org.springframework.security='off,stdout'
