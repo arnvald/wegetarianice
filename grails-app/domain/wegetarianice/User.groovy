@@ -10,12 +10,6 @@ class User {
 	static hasMany = [authorities: Role,  articles:Article, recipes:Recipe, comments:Comment]
 	static belongsTo = Role
 
-        //wegetarianice fields
-
-        String website
-        Date dateCreated
-        Date lastUpdated
-
 
 	/** Username */
 	String username
@@ -34,6 +28,10 @@ class User {
 
 	/** plain password to create a MD5 password */
 	String pass = '[secret]'
+
+        String website
+        Date dateCreated
+        Date lastUpdated
 
 	static constraints = {
 		username(blank: false, unique: true ,minLength: 4, maxLength: 32)

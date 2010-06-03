@@ -1,3 +1,5 @@
+package wegetarianice
+
 /**
  * Logout Controller (Example).
  */

@@ -1,5 +1,4 @@
-import wegetarianice.Role
-import wegetarianice.Requestmap
+package wegetarianice
 
 /**
  * Authority Controller.

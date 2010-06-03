@@ -1,5 +1,4 @@
-import wegetarianice.User
-import wegetarianice.Role
+package wegetarianice
 
 import org.springframework.security.providers.UsernamePasswordAuthenticationToken as AuthToken
 import org.springframework.security.context.SecurityContextHolder as SCH
