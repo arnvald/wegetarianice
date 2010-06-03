@@ -2,11 +2,11 @@ package wegetarianice
 
 class Comment {
 
-    String body
+  String body
 
-    static belongsTo = [user:User, article:Article]
+  static belongsTo = [user:User, article:Article]
 
-    static constraints = {
-      body(blank: false)
-    }
+  static constraints = {
+    body(blank: false)
+  }
 }

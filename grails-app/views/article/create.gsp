@@ -65,24 +65,6 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
-                                    <label for="lastUpdated"><g:message code="article.lastUpdated.label" default="Last Updated" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: articleInstance, field: 'lastUpdated', 'errors')}">
-                                    <g:datePicker name="lastUpdated" precision="day" value="${articleInstance?.lastUpdated}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="dateCreated"><g:message code="article.dateCreated.label" default="Date Created" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: articleInstance, field: 'dateCreated', 'errors')}">
-                                    <g:datePicker name="dateCreated" precision="day" value="${articleInstance?.dateCreated}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
                                     <label for="user"><g:message code="article.user.label" default="User" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: articleInstance, field: 'user', 'errors')}">

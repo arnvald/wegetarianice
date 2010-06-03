@@ -11,9 +11,9 @@ class Article {
   static belongsTo = [user:User, category:ArticleCategory]
 
   static constraints = {
-    title(blank: false)
-    body(blank: false)
+    title(blank: false, unique: true)
     description(nullable: true)
+    body(blank: false)
     lastUpdated(nullable: true)
   }
 }

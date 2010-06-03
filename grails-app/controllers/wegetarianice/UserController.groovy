@@ -1,4 +1,4 @@
-package wegetarianice
+  package wegetarianice
 
 class UserController extends ApplicationController {
 
@@ -24,14 +24,14 @@ class UserController extends ApplicationController {
 
         }
         else {
-          flash['message'] = 'Please enter a valid login and password'
+          flash['message'] = 'Podaj prawidłowy login i hasło'
         }
      }
    }
 
   def logout = {
     session.userId = null
-    flash['message'] = 'Successfully logged out'
+    flash['message'] = 'Wylogowano'
     redirect(controller:'user', action:'login')
   }
 
@@ -122,10 +122,10 @@ class UserController extends ApplicationController {
         flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'user.label', default: 'User'), params.id])}"
         redirect(action: "show", id: params.id)
       }
-  }
-  else {
-    flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])}"
-    redirect(action: "list")
+    }
+    else {
+      flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'user.label', default: 'User'), params.id])}"
+      redirect(action: "list")
     }
   }
 }

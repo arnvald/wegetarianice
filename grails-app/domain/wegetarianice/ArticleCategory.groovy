@@ -7,7 +7,9 @@ class ArticleCategory {
 
   static hasMany = [articles:Article]
   static constraints = {
-    name(blank: false)
+    name(blank: false, unique: true)
     description(nullable: true)
   }
+
+  String toString() {"$name"}
 }

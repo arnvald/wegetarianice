@@ -40,7 +40,6 @@
         <div class="buttons">
           <span class="button">
             <g:actionSubmit value="Log in" />
-            NOT JUST FOR INTRANET APPS | 81
           </span>
         </div>
       </g:form>

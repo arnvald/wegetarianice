@@ -1,0 +1,5 @@
+grails-app.conf
+grails-app.conf.spring
+grails-app.controllers.wegetarianice
+grails-app.domain.wegetarianice
+test.unit.wegetarianice
