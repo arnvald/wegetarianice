@@ -13,7 +13,7 @@ hibernate {
 environments {
 	development {
              dataSource {
-                   dbCreate = "update"
+                   dbCreate = "create-drop"
                    url = "jdbc:mysql://localhost/wegetarianiceDB"
                    driverClassName = "com.mysql.jdbc.Driver"
                    dialect ="org.hibernate.dialect.MySQLDialect"
