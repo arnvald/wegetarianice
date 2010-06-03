@@ -1,6 +1,6 @@
 package wegetarianice.admin
 
-class ArticleController extends AdminController {
+class AdminFoodCategoryController {
 
     def index = { }
 }
