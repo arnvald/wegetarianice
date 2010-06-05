@@ -7,7 +7,7 @@ class Article {
   String body
   Date dateCreated
   Date lastUpdated
-
+  static hasMany =[comments:Comment]
   static belongsTo = [user:User, category:ArticleCategory]
 
   static constraints = {

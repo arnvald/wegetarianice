@@ -7,7 +7,7 @@ import wegetarianice.User
  */
 class Role {
 
-	static hasMany = [people: User]
+	static hasMany = [people:User]
 
 	/** description */
 	String description
