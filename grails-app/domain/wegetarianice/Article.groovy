@@ -2,6 +2,8 @@ package wegetarianice
 
 class Article {
 
+  static searchable = true
+
   String title
   String description
   String body

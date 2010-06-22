@@ -2,6 +2,8 @@ package wegetarianice
 
 class Recipe {
 
+  static searchable = true
+
   String body
   String name
   String description
