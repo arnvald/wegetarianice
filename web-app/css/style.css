@@ -1,0 +1,422 @@
+@charset "utf-8";
+
+/*=======================================================================
+ Created by p3r, 2010.
+=======================================================================*/
+
+
+/*=======================================================================
+ Custom fonts.
+=======================================================================*/
+@font-face
+{
+	font-family: 'Aller';
+	src: url('../fonts/Aller_Rg.eot');
+	src: local('Aller'), url('../fonts/Aller_Rg.ttf') format('opentype');
+}
+
+@font-face
+{
+	font-family: 'Aller Italic';
+	src: url('../fonts/Aller_It.eot');
+	src: local('Aller Italic'), url('../fontsAller_It.ttf') format('opentype');
+}
+
+
+/*=======================================================================
+ Global selectors.
+=======================================================================*/
+*
+{
+	border:  none;
+	margin:  0px;
+	padding: 0px;
+
+	color: #584e43;
+	font-family: Aller, Arial, Helvetica, sans-serif;
+	font-size:   12px;
+	text-align:  justify;
+}
+
+html, body
+{
+	background-color: #ebe7d3;
+
+	height: 100%;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+a:hover
+{
+	color: #da1a35;
+}
+
+img
+{
+	border: none;
+}
+
+
+/*=======================================================================
+ Layout containers.
+=======================================================================*/
+#LayoutContainer
+{
+	margin: 0px 0px -68px 0px;
+
+	min-height: 100%;
+	width: 100%;
+
+	position: relative;
+}
+
+#MainHeaderContainer
+{
+	border-top: 4px solid #3c342b;
+
+	height: 96px;
+	width:  100%;
+}
+
+#HeaderContainer
+{
+	margin: 0px auto;
+
+	width: 960px;
+}
+
+#MainMenuContainer
+{
+	background: #f1eee0 url('../images/MenubarB.png') repeat-x left center;
+
+	border-bottom: 1px solid #dad8c7;
+	border-top:    1px solid #f6f4eb;
+
+	height: 70px;
+	width:  100%;
+}
+
+#MenuContainer
+{
+	margin: 0px auto;
+
+	width: 960px;
+}
+
+#MainContainer
+{
+	margin: 0px auto;
+
+	width: 960px;
+}
+
+#MainContentContainer
+{
+	margin-bottom: 24px;
+
+	width: 656px;
+
+	float: left;
+}
+
+#SidebarContainer
+{
+	margin-bottom: 24px;
+
+	width: 288px;
+
+	float: right;
+}
+
+#MainFootageContainer
+{
+	background: #3c342b url('../images/FootageD.png') repeat-x left top;
+
+	padding-top: 32px;
+
+	height: 36px;
+	width:  100%;
+
+	bottom: 0px;
+	clear:  both;
+	position: relative;
+
+	text-align: left;
+}
+
+#FootageContainer
+{
+	margin: 0px auto;
+
+	width: 960px;
+}
+
+
+/*=======================================================================
+ Panels.
+=======================================================================*/
+.Panel
+{
+	border-bottom: 1px solid #d3cba5;
+	padding: 16px 0px 24px 0px;
+
+	width: 100%;
+
+	overflow: hidden;
+}
+
+.Panel:first-child
+{
+	border-top: 1px solid #d3cba5;
+	margin-top: 16px;
+}
+
+.Panel h1, h2
+{
+	margin-bottom: 12px;
+
+	display: block;
+
+	font-family: 'Aller Italic', Arial, Helvetica, sans-serif;
+	font-size:   18px;
+	font-style:  italic;
+	font-weight: normal;
+}
+
+.Panel h2
+{
+	color: #979281;
+	font-size: 14px;
+}
+
+.Panel h1 + h2
+{
+	margin: -4px 0px 12px 8px;
+}
+
+.Panel ul
+{
+	list-style-type: none;
+}
+
+.Panel li
+{
+	background-image:    url('../images/ListItem.png');
+	background-position: 6px center;
+	background-repeat:   no-repeat;
+
+	margin:  0px;
+	padding: 6px 0px 6px 24px;
+}
+
+.Panel .Menu li
+{
+	background-image: url('../images/MenuList.png');
+
+	border-bottom: 1px dotted #d3cba5;
+	padding: 8px 0px 8px 24px;
+
+	color: #979281;
+}
+
+.Panel .Menu li:first-child
+{
+	border-top: 1px dotted #d3cba5;
+}
+
+.Panel .Menu li a
+{
+	color: #979281;
+}
+
+.Panel .Menu li a:hover
+{
+	color: #da1a35;
+}
+
+.Panel a.Button
+{
+	margin: 1px;
+}
+
+.Panel .Image
+{
+	border: 1px solid #dfd9b9;
+	margin: 6px;
+
+	float: left;
+}
+
+.Panel .Image img
+{
+	background-color: #f0eee1;
+
+	border:  1px solid #fdfaeb;
+	padding: 3px;
+}
+
+.Panel .SmallPanel
+{
+	margin-left: 16px;
+
+	width: 208px;
+
+	float: left;
+}
+
+.Panel .SmallPanel:first-child
+{
+	margin-left: 0px;
+}
+
+
+/*=======================================================================
+ Input.
+=======================================================================*/
+.CustomInput
+{
+	background: #ffffff url('../images/InputBox.png') no-repeat left center;
+
+	border:  none;
+	margin:  0px;
+	padding: 0px 0px 0px 8px;
+
+	height: 34px;
+	width:  247px;
+
+	color: #ada687;
+	font-family: 'Aller Italic', Arial, Helvetica, sans-serif;
+	font-style:  italic;
+	line-height: 34px;
+}
+
+.CompactSearch
+{
+	margin-top: 31px;
+
+	float: right;
+}
+
+.Newsletter
+{
+	float: left;
+}
+
+/* Id for auto-clearing default text from inputs. */
+.AutoClearInput
+{}
+
+
+/*=======================================================================
+ Main menu navigation.
+=======================================================================*/
+#MenuContainer ul .MainMenu
+{
+	list-style-type: none;
+}
+
+#MenuContainer .MainMenu li, .MainMenu li a
+{
+	margin: -1px 0px 0px 1px;
+
+	height: 72px;
+	width:  190px;
+
+	display:  block;
+	float:    left;
+	position: relative;
+
+	text-align: center;
+}
+
+#MenuContainer .MainMenu li:after, .MainMenu li:first-child:before
+{
+	content: url('../images/MenuSepa.png');
+}
+
+#MenuContainer .MainMenu li:after
+{
+	margin-right: -1px;
+
+	float: right;
+}
+
+#MenuContainer .MainMenu li:first-child:before
+{
+	margin-left: -1px;
+
+	float: left;
+}
+
+#MenuContainer .MainMenu li a
+{
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+
+	margin: 0px;
+}
+
+#MenuContainer .MainMenu li a:hover
+{
+	background-color: #f2c515;
+	background-position: 0px -72px;
+}
+
+#MenuContainer .MainMenu li .Home
+{
+	background-image: url('../images/MenuButt.png');
+}
+
+#MenuContainer .MainMenu li .Recipes
+{
+	background-image: url('../images/MenuButu.png');
+}
+
+#MenuContainer .MainMenu li .Knowledge
+{
+	background-image: url('../images/MenuButv.png');
+}
+
+#MenuContainer .MainMenu li .Search
+{
+	background-image: url('../images/MenuButw.png');
+}
+
+#MenuContainer .MainMenu li .Contact
+{
+	background-image: url('../images/MenuButx.png');
+}
+
+
+/*=======================================================================
+ Footage navigation.
+=======================================================================*/
+#FootageContainer ul .Navigation
+{
+	list-style-type: none;
+}
+
+#FootageContainer .Navigation li
+{
+	display: inline;
+}
+
+#FootageContainer .Navigation li:after, .Navigation li:first-child:before
+{
+	content: url('../images/NavSepar.png');
+
+	padding: 0px 5px;
+}
+
+
+/*=======================================================================
+ Logo.
+=======================================================================*/
+#HeaderContainer .Logo
+{
+	margin-top: 27px;
+}

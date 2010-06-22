@@ -23,7 +23,7 @@ class UrlMappings {
     "/admin/jednostki/$action?/$id?"(controller:"adminUnit")
     "/admin/uzytkownicy/$action?/$id?"(controller:"adminUser")
 
-    "/"(view:"/index")
+    "/"(controller:"main", action:"index")
     "/test"(view:"/testlayout")
     "500"(view:'/error')
     "404"(view:'/pages/404')
