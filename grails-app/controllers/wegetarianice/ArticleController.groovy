@@ -4,8 +4,38 @@ class ArticleController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 
+    def searchableService
+
     def index = {
         redirect(action: "list", params: params)
+    }
+
+
+    def search = {
+
+    }
+
+    def table = ["description","title"]
+
+    def find = {
+        def articleInstanceSet
+        def listOfProperties = [];
+        if(params.name)
+            listOfProperties.add("title")
+        if(params.body)
+            listOfProperties.add("body")
+        if(params.description)
+            listOfProperties.add("description")
+        if(params.similar)
+            articleInstanceSet = Article.search("*"+params["query"]+"*",escepe:false,properties:listOfProperties)
+        else
+            articleInstanceSet = Article.search(params["query"],escepe:true,properties:listOfProperties)
+
+        def total = articleInstanceSet.total
+        def list  = articleInstanceSet.results
+           
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [articleInstanceList:list,articleInstanceTotal:total]
     }
 
     def list = {
@@ -51,6 +81,7 @@ class ArticleController {
             return [articleInstance: articleInstance]
         }
     }
+    
 
     def update = {
         def articleInstance = Article.get(params.id)

@@ -14,5 +14,8 @@ class Recipe {
     body(blank: false)
     name(unique: true, blank: false)
     description(nullable: true)
-  }  
+  }
+  def search = {
+
+  }
 }
