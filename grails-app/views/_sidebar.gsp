@@ -1,19 +1,24 @@
-<!--
-  To change this template, choose Tools | Templates
-  and open the template in the editor.
--->
-
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <html>
   <body>
     <div class="Panel">
       <h1>Moje konto</h1>
+      <g:isLoggedIn>
+        Zalogowany jako...
+      </g:isLoggedIn>
+      <g:isNotLoggedIn>
       <h2>Witaj nieznajomy!</h2>
-      <a class="Button" href=""><img src="${resource(dir:'images',file:'ButtonLo.png')}" alt="Zaloguj" /></a>
-      <a class="Button" href=""><img src="${resource(dir:'images',file:'ButtonRe.png')}" alt="Zarejestruj" /></a>
+      <g:form action="j_spring_security_check" controller="">
+        <g:textField id="j_username" name="j_username" value="Login" class="AutoClearInput CustomInput" />
+        <g:passwordField id="j_password" name="j_password" value="Hasło" class="AutoClearInput CustomInput" />
+        <g:actionSubmit value="Zaloguj" action="j_spring_security_check" />
+        <g:link>
+          <img src="${resource(dir:'images',file:'ButtonRe.png')}" alt="Zarejestruj" />
+        </g:link>
+      </g:form>
+      </g:isNotLoggedIn>
     </div>
-    <!-- /account -->
 
     <div class="Panel">
       <h1>Kategorie</h1>

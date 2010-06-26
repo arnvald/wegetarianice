@@ -35,7 +35,7 @@ class User {
 
 	static constraints = {
 		username(blank: false, unique: true ,minLength: 4, maxLength: 32)
-		userRealName(blank: true)
+		userRealName(blank: true, nullable: true)
 		passwd(blank: false, minLength: 6, maxLength: 64)
                 email(email: true, blank: false)
                 website(url: true, nullable: true)

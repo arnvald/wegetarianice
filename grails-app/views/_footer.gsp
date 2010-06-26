@@ -7,11 +7,11 @@
 				<img style="float: left;" src="${resource(dir:'images',file:'punish3r.png')}" alt="punish3r design" />
 			</a>
 			<ul class="Navigation" style="float: right;">
-				<li><a href=""><img src="${resource(dir:'images',file:'NavHomeI.png')}" alt="Główna" /></a></li>
-				<li><a href=""><img src="${resource(dir:'images',file:'NavRecip.png')}" alt="Przepisy" /></a></li>
-				<li><a href=""><img src="${resource(dir:'images',file:'NavKnowl.png')}" alt="Wiedza" /></a></li>
-				<li><a href=""><img src="${resource(dir:'images',file:'NavSearc.png')}" alt="Wyszukaj" /></a></li>
-				<li><a href=""><img src="${resource(dir:'images',file:'NavConta.png')}" alt="Kontakt" /></a></li>
+        <li><g:link controller="main"><img src="${resource(dir:'images',file:'NavHomeI.png')}" alt="Główna" /></g:link></li>
+        <li><g:link controller="recipe"><img src="${resource(dir:'images',file:'NavRecip.png')}" alt="Przepisy" /></g:link></li>
+				<li><g:link controller="article"><img src="${resource(dir:'images',file:'NavKnowl.png')}" alt="Wiedza" /></g:link></li>
+				<li><g:link controller="searchable"><img src="${resource(dir:'images',file:'NavSearc.png')}" alt="Wyszukaj" /></g:link></li>
+				<li><g:link url="/kontakt"><img src="${resource(dir:'images',file:'NavConta.png')}" alt="Kontakt" /></g:link></li>
 			</ul>
 		</div>
   </body>

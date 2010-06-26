@@ -15,20 +15,21 @@
 	<div id="LayoutContainer">
 		<div id="MainHeaderContainer">
 			<div id="HeaderContainer">
-				<img class="Logo" src="${resource(dir:'images',file:'Logo0000.png')}" alt="Wegetarianice" />
-				<a class="CompactSearch" href=""><img src="${resource(dir:'images',file:'ButtonIn.png')}" alt="Szukaj..." /></a>
-				<input id="CompactSearchInput" class="AutoClearInput CompactSearch CustomInput" type="text" value="Wyszukaj..." />
+        <img class="Logo" src="${resource(dir:'images',file:'Logo0000.png')}" alt="Wegetarianice" />
+        <g:form url='[controller: "searchable", action: "index"]' id="compactSearchableForm" name="searchableForm" method="get" style="display:inline;">
+          <g:textField name="q" value="${params.q}" class="AutoClearInput CompactSearch CustomInput"/> <input type="submit" value="Search" />
+        </g:form>
 			</div>
 		</div>
 
 		<div id="MainMenuContainer">
 			<div id="MenuContainer">
 				<ul class="MainMenu">
-					<li><a class="Home" href="/"></a></li>
-					<li><a class="Recipes" href="/przepisy"></a></li>
-					<li><a class="Knowledge" href="/artykuly"></a></li>
-					<li><a class="Search" href="/szukaj"></a></li>
-					<li><a class="Contact" href="/kontakt"></a></li>
+          <li><g:link controller="main" class="Home"/></li>
+          <li><g:link controller="recipe" class="Recipes" /></li>
+          <li><g:link controller="article" class="Knowledge"/></li>
+          <li><g:link controller="searchable" class="Search"/></li>
+          <li><g:link controller="pages" class="Contact"/></li>
 				</ul>
 			</div>
 		</div>

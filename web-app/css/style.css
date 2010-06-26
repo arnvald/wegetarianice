@@ -19,7 +19,7 @@
 {
 	font-family: 'Aller Italic';
 	src: url('../fonts/Aller_It.eot');
-	src: local('Aller Italic'), url('../fontsAller_It.ttf') format('opentype');
+	src: local('Aller Italic'), url('../fonts/Aller_It.ttf') format('opentype');
 }
 
 

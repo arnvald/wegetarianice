@@ -5,7 +5,7 @@ class BootStrap {
 
 
 
-     def init = { servletContext ->
+     def init = {/* servletContext ->
 
         //obydwa hasla to test1234
 
@@ -113,7 +113,7 @@ class BootStrap {
 //        recipeCategoryA.save()
 //        recipeCategoryB.save()
 //        recipe1.save()
-//        recipe2.save()
+//        recipe2.save() */
 
      }
 

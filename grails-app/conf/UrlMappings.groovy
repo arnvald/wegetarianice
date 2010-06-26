@@ -1,6 +1,6 @@
 class UrlMappings {
     static mappings = {
-
+    "/szukaj/$action/$id"(controller:"searchable")
     "/artykuly/$action?/$id?"(controller:"article")
     "/przepisy/$action?/$id?"(controller:"recipe")
     "/kategorie/$action?/$id?"(controller:"categories")
@@ -24,7 +24,6 @@ class UrlMappings {
     "/admin/uzytkownicy/$action?/$id?"(controller:"adminUser")
 
     "/"(controller:"main", action:"index")
-    "/test"(view:"/testlayout")
     "500"(view:'/error')
     "404"(view:'/pages/404')
 	}
