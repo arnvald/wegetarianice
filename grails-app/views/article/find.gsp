@@ -37,20 +37,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <g:each in="${articleInstanceList}" status="i" var="articleInstance">
+                    <g:each in="${articleList}" status="i" var="article">
                         <tr class="${(i % 2) == 0 ? 'odd' : 'even'}">
                         
-                            <td><g:link action="show" id="${articleInstance.id}">${fieldValue(bean: articleInstance, field: "id")}</g:link></td>
+                            <td><g:link action="show" id="${article.id}">${fieldValue(bean: article, field: "id")}</g:link></td>
                         
-                            <td>${fieldValue(bean: articleInstance, field: "title")}</td>
+                            <td>${fieldValue(bean: article, field: "title")}</td>
                         
-                            <td>${fieldValue(bean: articleInstance, field: "body")}</td>
+                            <td>${fieldValue(bean: article, field: "body")}</td>
                         
-                            <td>${fieldValue(bean: articleInstance, field: "category")}</td>
+                            <td>${fieldValue(bean: article, field: "category")}</td>
                         
-                            <td>${fieldValue(bean: articleInstance, field: "description")}</td>
+                            <td>${fieldValue(bean: article, field: "description")}</td>
                         
-                            <td><g:formatDate date="${articleInstance.lastUpdated}" /></td>
+                            <td><g:formatDate date="${article.lastUpdated}" /></td>
                         
                         </tr>
                     </g:each>
@@ -58,7 +58,7 @@
                 </table>
             </div>
             <div class="paginateButtons">
-                <g:paginate total="${articleInstanceTotal}" />
+                <g:paginate total="${articleTotal}" />
             </div>
         </div>
     </body>

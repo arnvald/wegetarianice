@@ -25,56 +25,56 @@
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="article.id.label" default="Id" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: articleInstance, field: "id")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: article, field: "id")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="article.title.label" default="Title" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: articleInstance, field: "title")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: article, field: "title")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="article.body.label" default="Body" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: articleInstance, field: "body")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: article, field: "body")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="article.category.label" default="Category" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="articleCategory" action="show" id="${articleInstance?.category?.id}">${articleInstance?.category?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="articleCategory" action="show" id="${article?.category?.id}">${article?.category?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="article.description.label" default="Description" /></td>
                             
-                            <td valign="top" class="value">${fieldValue(bean: articleInstance, field: "description")}</td>
+                            <td valign="top" class="value">${fieldValue(bean: article, field: "description")}</td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="article.lastUpdated.label" default="Last Updated" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${articleInstance?.lastUpdated}" /></td>
+                            <td valign="top" class="value"><g:formatDate date="${article?.lastUpdated}" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="article.dateCreated.label" default="Date Created" /></td>
                             
-                            <td valign="top" class="value"><g:formatDate date="${articleInstance?.dateCreated}" /></td>
+                            <td valign="top" class="value"><g:formatDate date="${article?.dateCreated}" /></td>
                             
                         </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name"><g:message code="article.user.label" default="User" /></td>
                             
-                            <td valign="top" class="value"><g:link controller="user" action="show" id="${articleInstance?.user?.id}">${articleInstance?.user?.encodeAsHTML()}</g:link></td>
+                            <td valign="top" class="value"><g:link controller="user" action="show" id="${article?.user?.id}">${article?.user?.encodeAsHTML()}</g:link></td>
                             
                         </tr>
                     
@@ -83,7 +83,7 @@
             </div>
             <div class="buttons">
                 <g:form>
-                    <g:hiddenField name="id" value="${articleInstance?.id}" />
+                    <g:hiddenField name="id" value="${article?.id}" />
                     <span class="button"><g:actionSubmit class="edit" action="edit" value="${message(code: 'default.button.edit.label', default: 'Edit')}" /></span>
                     <span class="button"><g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" /></span>
                 </g:form>

@@ -91,7 +91,7 @@ img
 
 #MainMenuContainer
 {
-	background: #f1eee0 url('../images/MenubarB.png') repeat-x left center;
+	background: #f1eee0 url('../images/MenubarBg.png') repeat-x left center;
 
 	border-bottom: 1px solid #dad8c7;
 	border-top:    1px solid #f6f4eb;
@@ -134,7 +134,7 @@ img
 
 #MainFootageContainer
 {
-	background: #3c342b url('../images/FootageD.png') repeat-x left top;
+	background: #3c342b url('../images/FootageDecoBg.png') repeat-x left top;
 
 	padding-top: 32px;
 
@@ -175,7 +175,7 @@ img
 	margin-top: 16px;
 }
 
-.Panel h1, h2
+.Panel h1, h2, h1 a, h2 a
 {
 	margin-bottom: 12px;
 
@@ -187,7 +187,12 @@ img
 	font-weight: normal;
 }
 
-.Panel h2
+.Panel h1 a, h2 a
+{
+	display: inline;
+}
+
+.Panel h2, h2 a
 {
 	color: #979281;
 	font-size: 14px;
@@ -205,7 +210,7 @@ img
 
 .Panel li
 {
-	background-image:    url('../images/ListItem.png');
+	background-image:    url('../images/ListItemMarker.png');
 	background-position: 6px center;
 	background-repeat:   no-repeat;
 
@@ -215,7 +220,7 @@ img
 
 .Panel .Menu li
 {
-	background-image: url('../images/MenuList.png');
+	background-image: url('../images/MenuListItemMarker.png');
 
 	border-bottom: 1px dotted #d3cba5;
 	padding: 8px 0px 8px 24px;
@@ -238,11 +243,6 @@ img
 	color: #da1a35;
 }
 
-.Panel a.Button
-{
-	margin: 1px;
-}
-
 .Panel .Image
 {
 	border: 1px solid #dfd9b9;
@@ -259,27 +259,185 @@ img
 	padding: 3px;
 }
 
+.Panel .Icon
+{
+	margin: 0px 1px;
+
+	width: 128px;
+
+	float: left;
+}
+
+.Panel .Icon p, .Panel .Icon a
+{
+	color: #979281;
+	font-family: 'Aller Italic', Arial, Helvetica, sans-serif;
+	text-align:  center;
+	font-style:  italic;
+}
+
+.Panel .Icon a:hover
+{
+	color: #da1a35;
+}
+
+.Panel .Icon .Image img
+{
+	width: 116px;
+}
+
 .Panel .SmallPanel
 {
-	margin-left: 16px;
+	margin: 0px 5px 0px 5px;
 
 	width: 208px;
 
 	float: left;
 }
 
-.Panel .SmallPanel:first-child
+.Panel .SubsectionMore
 {
-	margin-left: 0px;
+	margin-top: 8px;
+
+	float: right;
+}
+
+.Panel .SubsectionCategories
+{
+	border-bottom: 1px solid #d3cba5;
+	border-top:    1px solid #d3cba5;
+	margin:  8px 0px 24px 0px;
+	padding: 4px 0px 4px 0px;
+
+	width: 100%;
+
+	font-family: 'Aller Italic', Arial, Helvetica, sans-serif;
+	font-style:  italic;
+}
+
+.Panel .SmallPanel .SubsectionImage
+{
+	border: 1px solid #dfd9b9;
+	margin: 0px;
+}
+
+.Panel .SmallPanel .SubsectionImage img
+{
+	background-color: #f0eee1;
+
+	border:  1px solid #fdfaeb;
+	padding: 3px;
+
+	width: 202px;
 }
 
 
 /*=======================================================================
  Input.
 =======================================================================*/
-.CustomInput
+input[type="button"].Custom,
+input[type="reset" ].Custom,
+input[type="submit"].Custom,
+input[type="button"].CustomSmall,
+input[type="reset" ].CustomSmall,
+input[type="submit"].CustomSmall,
+input[type="button"].CustomCircle,
+input[type="reset" ].CustomCircle,
+input[type="submit"].CustomCircle
 {
-	background: #ffffff url('../images/InputBox.png') no-repeat left center;
+	background: #ebe7d3 url('../images/ButtonBg.png') 0px 0px no-repeat;
+
+	margin: 1px;
+
+	height: 24px;
+	width:  140px;
+
+	display: inline-block;
+
+	color: #584e43;
+	font-family: 'Aller Italic', Arial, Helvetica, sans-serif;
+	font-size:   11px;
+	text-align:  center;
+	font-style:  italic;
+}
+
+input[type="button"].CustomSmall,
+input[type="reset" ].CustomSmall,
+input[type="submit"].CustomSmall
+{
+	background-image: url('../images/ButtonSmallBg.png');
+
+	width: 64px;
+}
+
+input[type="button"].CustomCircle,
+input[type="reset" ].CustomCircle,
+input[type="submit"].CustomCircle
+{
+	background-image: url('../images/CircleButtonBg.png');
+
+	margin: 0px;
+
+	height: 30px;
+	width:  30px;
+}
+
+input[type="button"].CustomCircle:hover,
+input[type="reset" ].CustomCircle:hover,
+input[type="submit"].CustomCircle:hover
+{
+	background-position: 0px -30px;
+
+	color: #ffffff;
+}
+
+input[type="button"].Custom:hover,
+input[type="reset" ].Custom:hover,
+input[type="submit"].Custom:hover,
+input[type="button"].CustomSmall:hover,
+input[type="reset" ].CustomSmall:hover,
+input[type="submit"].CustomSmall:hover
+{
+	background-position: 0px -24px;
+
+	color: #ffffff;
+}
+
+input[type="text"].Custom,
+input[type="password"].Custom,
+input[type="text"].CustomWithIconSmall,
+input[type="password"].CustomWithIconSmall
+{
+	background: #ebe7d3 url('../images/InputBoxBg.png') no-repeat left center;
+
+	border:  none;
+	margin:  0px 0px 4px 0px;
+	padding: 0px 0px 0px 8px;
+
+	height: 26px;
+	width:  288px;
+
+	color: #ada687;
+	font-family: 'Aller Italic', Arial, Helvetica, sans-serif;
+	font-style:  italic;
+	line-height: 26px;
+
+	display: inline-block;
+}
+
+input[type="text"].CustomWithIconSmall,
+input[type="password"].CustomWithIconSmall
+{
+	width: 256px;
+
+	float:    left;
+	position: relative;
+}
+
+input[type="text"].CustomWithIcon,
+input[type="password"].CustomWithIcon
+{
+	background: #ebe7d3 url('../images/InputBoxBigBg.png') no-repeat left center;
 
 	border:  none;
 	margin:  0px;
@@ -288,26 +446,139 @@ img
 	height: 34px;
 	width:  247px;
 
+	display:  inline-block;
+	float:    left;
+	position: relative;
+
 	color: #ada687;
 	font-family: 'Aller Italic', Arial, Helvetica, sans-serif;
 	font-style:  italic;
 	line-height: 34px;
 }
 
-.CompactSearch
+input[type="button"].Icon,
+input[type="reset" ].Icon,
+input[type="submit"].Icon,
+input[type="button"].IconSmall,
+input[type="reset" ].IconSmall,
+input[type="submit"].IconSmall
 {
-	margin-top: 31px;
+	background-color: #ebe7d3;
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
 
-	float: right;
+	margin: 0px;
+
+	height: 34px;
+	width:  33px;
+
+	clear:    right;
+	display:  inline-block;
+	float:    left;
+	position: relative;
 }
 
-.Newsletter
+input[type="button"].IconSmall,
+input[type="reset" ].IconSmall,
+input[type="submit"].IconSmall
 {
-	float: left;
+	height: 26px;
+	width:  24px;
+}
+
+input[type="button"].Icon:hover,
+input[type="reset" ].Icon:hover,
+input[type="submit"].Icon:hover
+{
+	background-position: 0px -34px;
+}
+
+input[type="button"].IconSmall:hover,
+input[type="reset" ].IconSmall:hover,
+input[type="submit"].IconSmall:hover
+{
+	background-position: 0px -26px;
+}
+
+input[type="checkbox"].Custom,
+input[type="radio"].Custom
+{
+	display: none;
+}
+
+.CustomCheckBox,
+.CustomRadio
+{
+	background: #ebe7d3 url('../images/CheckBox.png') no-repeat;
+
+	margin:  0px 4px 2px 0px;
+	padding: 0px;
+
+	height: 16px;
+	width:  16px;
+
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.CustomRadio
+{
+	background-image: url('../images/Radio.png');
+}
+
+select.Custom
+{
+	margin:  0px 0px 4px 0px;
+
+	height: 26px;
+	width:  288px;
+
+	opacity: 0;
+
+	position: relative;
+	z-index: 5;
+}
+
+.CustomSelect
+{
+	background: #ebe7d3 url('../images/SelectBg.png') no-repeat left center;
+
+	padding: 0px 24px 0px 8px;
+
+	height: 26px;
+	width:  256px;
+
+	overflow: hidden;
+	position: absolute;
+
+	color: #ada687;
+	font-family: 'Aller Italic', Arial, Helvetica, sans-serif;
+	font-style:  italic;
+	line-height: 26px;
+}
+
+.CustomDisabledInput
+{
+	opacity: 0.5;
+}
+
+.CompactSearchIcon
+{
+	background-image: url('../images/ButtonInputSearch.png');
+}
+
+.NewsletterIcon
+{
+	background-image: url('../images/ButtonInputAdd.png');
+}
+
+.QuestionIcon
+{
+	background-image: url('../images/IconQuestion.png');
 }
 
 /* Id for auto-clearing default text from inputs. */
-.AutoClearInput
+input.AutoClear
 {}
 
 
@@ -335,7 +606,7 @@ img
 
 #MenuContainer .MainMenu li:after, .MainMenu li:first-child:before
 {
-	content: url('../images/MenuSepa.png');
+	content: url('../images/MenuSeparator.png');
 }
 
 #MenuContainer .MainMenu li:after
@@ -368,27 +639,27 @@ img
 
 #MenuContainer .MainMenu li .Home
 {
-	background-image: url('../images/MenuButt.png');
+	background-image: url('../images/MenuButtonHome.png');
 }
 
 #MenuContainer .MainMenu li .Recipes
 {
-	background-image: url('../images/MenuButu.png');
+	background-image: url('../images/MenuButtonRecipes.png');
 }
 
 #MenuContainer .MainMenu li .Knowledge
 {
-	background-image: url('../images/MenuButv.png');
+	background-image: url('../images/MenuButtonKnowledge.png');
 }
 
 #MenuContainer .MainMenu li .Search
 {
-	background-image: url('../images/MenuButw.png');
+	background-image: url('../images/MenuButtonSearch.png');
 }
 
 #MenuContainer .MainMenu li .Contact
 {
-	background-image: url('../images/MenuButx.png');
+	background-image: url('../images/MenuButtonContact.png');
 }
 
 
@@ -407,7 +678,7 @@ img
 
 #FootageContainer .Navigation li:after, .Navigation li:first-child:before
 {
-	content: url('../images/NavSepar.png');
+	content: url('../images/NavSeparator.png');
 
 	padding: 0px 5px;
 }

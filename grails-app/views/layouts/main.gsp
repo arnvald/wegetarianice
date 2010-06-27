@@ -13,11 +13,13 @@
 
 <body>
 	<div id="LayoutContainer">
+
 		<div id="MainHeaderContainer">
 			<div id="HeaderContainer">
         <img class="Logo" src="${resource(dir:'images',file:'Logo0000.png')}" alt="Wegetarianice" />
-        <g:form url='[controller: "searchable", action: "index"]' id="compactSearchableForm" name="searchableForm" method="get" style="display:inline;">
-          <g:textField name="q" value="${params.q}" class="AutoClearInput CompactSearch CustomInput"/> <input type="submit" value="Search" />
+        <g:form url='[controller: "searchable", action: "index"]' id="compactSearchableForm" name="searchableForm" method="get" style="float: right; margin-top: 31px;">
+          <g:submitButton name="Search" class="Icon CompactSearchIcon" style="float: right;" value="" />
+          <g:textField name="q" value="${params.q}" class="AutoClear CustomWithIcon"/>
         </g:form>
 			</div>
 		</div>
@@ -38,11 +40,12 @@
 			<div id="MainContentContainer">
         <g:layoutBody />
 			</div>
-
+      
 			<div id="SidebarContainer">
         <g:render template="/sidebar" />
 			</div>
 		</div>
+
 	</div>
 	
 	<div id="MainFootageContainer">

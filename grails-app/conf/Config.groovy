@@ -85,6 +85,40 @@ log4j = {
 }
 
 
+fckeditor {
+	upload {
+		basedir = "/uploads/"
+		overwrite = false
+		link {
+			browser = true
+			upload = false
+			allowed = []
+			denied = ['html', 'htm', 'php', 'php2', 'php3', 'php4', 'php5', 'phtml', 'pwml', 'inc', 'asp', 'aspx', 'ascx', 'jsp',
+ 'cfm', 'cfc', 'pl', 'bat', 'exe', 'com', 'dll', 'vbs', 'js', 'reg',
+'cgi', 'htaccess', 'asis', 'sh', 'shtml', 'shtm', 'phtm']
+		}
+		image {
+			browser = true
+			upload = true
+			allowed = ['jpg', 'gif', 'jpeg', 'png']
+			denied = []
+		}
+		flash {
+			browser = false
+			upload = false
+			allowed = ['swf']
+			denied = []
+		}
+		media {
+			browser = false
+			upload = false
+			allowed = []
+			denied = []
+		}
+	}
+}
+
+
      
 
 //log4j.logger.org.springframework.security='off,stdout'

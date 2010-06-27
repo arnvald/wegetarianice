@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
-
+<%@ page import="wegetarianice.RecipeCategory"%>
 <html>
   <body>
     <div class="Panel">
@@ -10,12 +10,13 @@
       <g:isNotLoggedIn>
       <h2>Witaj nieznajomy!</h2>
       <g:form action="j_spring_security_check" controller="">
-        <g:textField id="j_username" name="j_username" value="Login" class="AutoClearInput CustomInput" />
-        <g:passwordField id="j_password" name="j_password" value="Hasło" class="AutoClearInput CustomInput" />
-        <g:actionSubmit value="Zaloguj" action="j_spring_security_check" />
-        <g:link>
-          <img src="${resource(dir:'images',file:'ButtonRe.png')}" alt="Zarejestruj" />
-        </g:link>
+        <g:textField id="j_username" name="j_username" value="Login" class="AutoClearInput Custom" />
+        <g:passwordField id="j_password" name="j_password" value="Hasło" class="AutoClearInput CustomWithIconSmall" />
+        <input type="button" class="IconSmall QuestionIcon" value="" />
+        <div style="clear: both;"></div>
+				<g:checkBox class="Custom" name="RememberMe" value="True" />Pamiętaj mnie<br /><br />
+        <g:submitButton class="Custom" value="Zaloguj" name="Login" />
+        <g:submitButton class="Custom" value="Zarejestruj" name="Register"/>
       </g:form>
       </g:isNotLoggedIn>
     </div>
@@ -23,25 +24,24 @@
     <div class="Panel">
       <h1>Kategorie</h1>
       <ul class="Menu">
-        <li><a href="">Lorem ipsum dolor sit amet</a></li>
-        <li><a href="">Lorem ipsum dolor sit amet</a></li>
-        <li><a href="">Lorem ipsum dolor sit amet</a></li>
-        <li><a href="">Lorem ipsum dolor sit amet</a></li>
-        <li><a href="">Lorem ipsum dolor sit amet</a></li>
-        <li><a href="">Lorem ipsum dolor sit amet</a></li>
+        <g:each in="${RecipeCategory.getAll()}" var="category">
+          <li> <g:link controller="RecipeCategory" action="show" id="${category.id}"> ${category.name} </g:link> </li>
+        </g:each>
       </ul>
     </div>
     <!-- /categories -->
 
     <div class="Panel">
       <h1>Newsletter</h1>
-      <input id="NewsletterEmailInput" class="AutoClearInput CustomInput Newsletter" value="Dodaj swój adres e-mail" />
-      <a class="Newsletter" href=""><img src="${resource(dir:'images',file:'ButtonIo.png')}" alt="+" /></a>
+      <g:form method="post">
+				<g:textField name="NewsletterEmail" class="AutoClear CustomWithIcon" value="Dodaj swój adres e-mail" />
+				<g:actionSubmit class="Icon NewsletterIcon" value="a" action="" />
+			</g:form>
     </div>
     <!-- /newsletter -->
 
     <div class="Panel">
-      <a href=""><img src="${resource(dir:'images',file:'RssButto.png')}" alt="Subskrybuj RSS!" /></a>
+      <a href=""><img src="${resource(dir:'images',file:'RssButton.png')}" alt="Subskrybuj RSS!" /></a>
     </div>
     <!-- /rss -->
 

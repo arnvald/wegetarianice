@@ -1,10 +1,6 @@
 import wegetarianice.*
 class BootStrap {
 
-
-
-
-
      def init = {/* servletContext ->
 
         //obydwa hasla to test1234

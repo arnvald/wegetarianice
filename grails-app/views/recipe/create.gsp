@@ -24,59 +24,26 @@
             </g:hasErrors>
             <g:form action="save" method="post" >
                 <div class="dialog">
-                    <table>
-                        <tbody>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="body"><g:message code="recipe.body.label" default="Body" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: recipeInstance, field: 'body', 'errors')}">
-                                    <g:textField name="body" value="${recipeInstance?.body}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="name"><g:message code="recipe.name.label" default="Name" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: recipeInstance, field: 'name', 'errors')}">
-                                    <g:textField name="name" value="${recipeInstance?.name}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="description"><g:message code="recipe.description.label" default="Description" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: recipeInstance, field: 'description', 'errors')}">
-                                    <g:textField name="description" value="${recipeInstance?.description}" />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="category"><g:message code="recipe.category.label" default="Category" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: recipeInstance, field: 'category', 'errors')}">
-                                    <g:select name="category.id" from="${wegetarianice.RecipeCategory.list()}" optionKey="id" value="${recipeInstance?.category?.id}"  />
-                                </td>
-                            </tr>
-                        
-                            <tr class="prop">
-                                <td valign="top" class="name">
-                                    <label for="user"><g:message code="recipe.user.label" default="User" /></label>
-                                </td>
-                                <td valign="top" class="value ${hasErrors(bean: recipeInstance, field: 'user', 'errors')}">
-                                    <g:select name="user.id" from="${wegetarianice.User.list()}" optionKey="id" value="${recipeInstance?.user?.id}"  />
-                                </td>
-                            </tr>
-                        
-                        </tbody>
-                    </table>
+                  <label for="body"><g:message code="recipe.body.label" default="Body" /></label>
+                  <fckeditor:editor
+                    name="body"
+                    width="300"
+                    height="400"
+                    toolbar="Basic"
+                    fileBrowser="default">
+                    ${recipeInstance?.body}
+                  </fckeditor:editor>
+                  <label for="name"><g:message code="recipe.name.label" default="Name" /></label>
+                  <g:textField name="name" value="${recipeInstance?.name}" />
+                  <label for="description"><g:message code="recipe.description.label" default="Description" /></label>
+                  <g:textField name="description" value="${recipeInstance?.description}" />
+                  <label for="category"><g:message code="recipe.category.label" default="Category" /></label>
+                  <g:select name="category.id" from="${wegetarianice.RecipeCategory.list()}" optionKey="id" value="${recipeInstance?.category?.id}"  />
+                  <label for="user"><g:message code="recipe.user.label" default="User" /></label>
+                  <g:select name="user.id" from="${wegetarianice.User.list()}" optionKey="id" value="${recipeInstance?.user?.id}"  />
                 </div>
                 <div class="buttons">
-                    <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
+                  <span class="button"><g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" /></span>
                 </div>
             </g:form>
         </div>

@@ -38,8 +38,8 @@
                             </tr>
 
                             <tr class="prop">
-                                <td valign="top" class="value ${hasErrors(bean: articleInstance, field: 'body', 'errors')}">
-                                    <g:textField name="query" value="${articleInstance?.body}" />
+                                <td valign="top" class="value ${hasErrors(bean: article, field: 'body', 'errors')}">
+                                    <g:textField name="query" value="${article?.body}" />
                                 </td>
                             </tr>
                         

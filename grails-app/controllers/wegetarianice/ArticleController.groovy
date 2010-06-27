@@ -18,7 +18,7 @@ class ArticleController {
     def table = ["description","title"]
 
     def find = {
-        def articleInstanceSet
+        def articleSet
         def listOfProperties = [];
         if(params.name)
             listOfProperties.add("title")
@@ -27,81 +27,81 @@ class ArticleController {
         if(params.description)
             listOfProperties.add("description")
         if(params.similar)
-            articleInstanceSet = Article.search("*"+params["query"]+"*",escepe:false,properties:listOfProperties)
+            articleSet = Article.search("*"+params["query"]+"*",escepe:false,properties:listOfProperties)
         else
-            articleInstanceSet = Article.search(params["query"],escepe:true,properties:listOfProperties)
+            articleSet = Article.search(params["query"],escepe:true,properties:listOfProperties)
 
-        def total = articleInstanceSet.total
-        def list  = articleInstanceSet.results
+        def total = articleSet.total
+        def list  = articleSet.results
            
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [articleInstanceList:list,articleInstanceTotal:total]
+        [articleList:list,articleTotal:total]
     }
 
     def list = {
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [articleInstanceList: Article.list(params), articleInstanceTotal: Article.count()]
+        [articleList: Article.list(params), articleTotal: Article.count()]
     }
 
     def create = {
-        def articleInstance = new Article()
-        articleInstance.properties = params
-        return [articleInstance: articleInstance]
+        def article = new Article()
+        article.properties = params
+        return [article: article]
     }
 
     def save = {
-        def articleInstance = new Article(params)
-        if (articleInstance.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'article.label', default: 'Article'), articleInstance.id])}"
-            redirect(action: "show", id: articleInstance.id)
+        def article = new Article(params)
+        if (article.save(flush: true)) {
+            flash.message = "${message(code: 'default.created.message', args: [message(code: 'article.label', default: 'Article'), article.id])}"
+            redirect(action: "show", id: article.id)
         }
         else {
-            render(view: "create", model: [articleInstance: articleInstance])
+            render(view: "create", model: [article: article])
         }
     }
 
     def show = {
-        def articleInstance = Article.get(params.id)
-        if (!articleInstance) {
+        def article = Article.get(params.id)
+        if (!article) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'article.label', default: 'Article'), params.id])}"
             redirect(action: "list")
         }
         else {
-            [articleInstance: articleInstance]
+            [article: article]
         }
     }
 
     def edit = {
-        def articleInstance = Article.get(params.id)
-        if (!articleInstance) {
+        def article = Article.get(params.id)
+        if (!article) {
             flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'article.label', default: 'Article'), params.id])}"
             redirect(action: "list")
         }
         else {
-            return [articleInstance: articleInstance]
+            return [article: article]
         }
     }
     
 
     def update = {
-        def articleInstance = Article.get(params.id)
-        if (articleInstance) {
+        def article = Article.get(params.id)
+        if (article) {
             if (params.version) {
                 def version = params.version.toLong()
-                if (articleInstance.version > version) {
+                if (article.version > version) {
                     
-                    articleInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'article.label', default: 'Article')] as Object[], "Another user has updated this Article while you were editing")
-                    render(view: "edit", model: [articleInstance: articleInstance])
+                    article.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'article.label', default: 'Article')] as Object[], "Another user has updated this Article while you were editing")
+                    render(view: "edit", model: [article: article])
                     return
                 }
             }
-            articleInstance.properties = params
-            if (!articleInstance.hasErrors() && articleInstance.save(flush: true)) {
-                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'article.label', default: 'Article'), articleInstance.id])}"
-                redirect(action: "show", id: articleInstance.id)
+            article.properties = params
+            if (!article.hasErrors() && article.save(flush: true)) {
+                flash.message = "${message(code: 'default.updated.message', args: [message(code: 'article.label', default: 'Article'), article.id])}"
+                redirect(action: "show", id: article.id)
             }
             else {
-                render(view: "edit", model: [articleInstance: articleInstance])
+                render(view: "edit", model: [article: article])
             }
         }
         else {
@@ -111,10 +111,10 @@ class ArticleController {
     }
 
     def delete = {
-        def articleInstance = Article.get(params.id)
-        if (articleInstance) {
+        def article = Article.get(params.id)
+        if (article) {
             try {
-                articleInstance.delete(flush: true)
+                article.delete(flush: true)
                 flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'article.label', default: 'Article'), params.id])}"
                 redirect(action: "list")
             }

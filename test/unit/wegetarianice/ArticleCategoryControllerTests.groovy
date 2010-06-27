@@ -1,8 +1,8 @@
-package wegetarianice.admin
+package wegetarianice
 
 import grails.test.*
 
-class FoodCategoryControllerTests extends ControllerUnitTestCase {
+class ArticleCategoryControllerTests extends ControllerUnitTestCase {
     protected void setUp() {
         super.setUp()
     }
