@@ -5,11 +5,12 @@
     <div class="Panel">
       <h1>Moje konto</h1>
       <g:isLoggedIn>
-        Zalogowany jako...
+        Zalogowany jako ${currentUser().username}
+        <g:link controller="logout">Wyloguj</g:link>
       </g:isLoggedIn>
       <g:isNotLoggedIn>
       <h2>Witaj nieznajomy!</h2>
-      <g:form action="j_spring_security_check" controller="">
+      <form action="${request.contextPath}/j_spring_security_check" method="Post">
         <g:textField id="j_username" name="j_username" value="Login" class="AutoClearInput Custom" />
         <g:passwordField id="j_password" name="j_password" value="Hasło" class="AutoClearInput CustomWithIconSmall" />
         <input type="button" class="IconSmall QuestionIcon" value="" />
@@ -17,7 +18,7 @@
 				<g:checkBox class="Custom" name="RememberMe" value="True" />Pamiętaj mnie<br /><br />
         <g:submitButton class="Custom" value="Zaloguj" name="Login" />
         <g:submitButton class="Custom" value="Zarejestruj" name="Register"/>
-      </g:form>
+      </form>
       </g:isNotLoggedIn>
     </div>
 

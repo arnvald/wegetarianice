@@ -1,6 +1,6 @@
 package wegetarianice
 
-class MainController {
+class MainController extends ApplicationController {
 
-    def index = { }
+  def index = { }
 }
