@@ -1,6 +1,10 @@
 package wegetarianice
 
-class MainController extends ApplicationController {
+class MainController {
 
   def index = { }
+
+  def authenticateService
+  def currentUser = authenticateService.principal()
+  }
 }
