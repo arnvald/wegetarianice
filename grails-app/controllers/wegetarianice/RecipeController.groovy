@@ -6,6 +6,25 @@ class RecipeController {
     redirect(action: "list", params: params)
   }
 
+  def search = {
+
+  }
+
+  def table = ["description","title"]
+
+    def find = {
+        def recipeSet
+        def listOfProperties = [];
+
+            recipeSet = Recipe.search(params["searchByContent"],escape:true)
+
+        def total = recipeSet.total
+        def list  = recipeSet.results
+
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [recipeInstanceList:list,recipeTotal:total]
+    }
+
   def list = {
     params.max = Math.min(params.max ? params.int('max') : 10, 100)
     [recipeInstanceList: Recipe.list(params), recipeInstanceTotal: Recipe.count()]

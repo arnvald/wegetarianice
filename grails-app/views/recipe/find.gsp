@@ -5,14 +5,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="layout" content="main" />
     <g:set var="entityName" value="${message(code: 'recipe.label', default: 'Recipe')}" />
-    <title><g:message code="default.list.label" args="[entityName]" /></title>
+    <title><g:message code="default.show.label" args="[entityName]" /></title>
   </head>
-
   <body>
-    <g:isLoggedIn>
-      <%= link(action:'create') { 'Dodaj nowy przepis' }%>
-    </g:isLoggedIn>
-    <div class="Panel">
       <g:each in="${recipeInstanceList}" status="i" var="recipeInstance">
         <div class="SmallPanel">
           <h1><g:link action="show" id="${recipeInstance.id}">${recipeInstance.name}</g:link></h1>

@@ -15,7 +15,5 @@ class Recipe {
     name(unique: true, blank: false)
     description(nullable: true)
   }
-  def search = {
 
-  }
 }

@@ -4,9 +4,7 @@ class BootStrap {
 
 
 
-
      def init = { servletContext ->
-
         //obydwa hasla to test1234
 
         def role = new Role(authority: 'ROLE_ADMIN', description: 'Admin role')
