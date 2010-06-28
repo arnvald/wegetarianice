@@ -16,7 +16,7 @@
     <div class="Panel">
       <g:each in="${recipeList}" status="i" var="recipe">
         <div class="SmallPanel">
-          <h1><g:link controller="recipe" action="show" id="${recipe.slug}">${recipe.name}</g:link></h1>
+          <h1><g:link action="show" id="${recipe.slug}">${recipe.name}</g:link></h1>
           <h2>Dodał: <g:link action="show" controller="user" id="${recipe.user.id}">
               ${recipe.user.username}
           </g:link></h2>
