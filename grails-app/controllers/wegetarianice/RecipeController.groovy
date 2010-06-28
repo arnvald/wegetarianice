@@ -49,12 +49,8 @@ class RecipeController {
            redirect (action : "list")
         }
 
-<<<<<<< HEAD
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
         [recipeList:list,recipeTotal:total]
-=======
-        
->>>>>>> a06bbd4c85c62d21c8db46dfa7bf9040f5e2796c
     }
 
   def list = {
