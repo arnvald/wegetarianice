@@ -1,6 +1,9 @@
 package wegetarianice
 
 class Ingredient {
+
+  static searchable = true;
+
   //Food food
   //Recipe recipe
   int priority

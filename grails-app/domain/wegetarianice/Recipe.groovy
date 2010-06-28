@@ -17,6 +17,6 @@ class Recipe {
     body(blank: false)
     name(unique: true, blank: false)
     description(nullable: true)
-    slug(nullable:false)
+    slug(nullable:true)
   }
 }

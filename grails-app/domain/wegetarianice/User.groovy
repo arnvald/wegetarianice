@@ -5,8 +5,13 @@ import wegetarianice.Role
 /**
  * User domain class.
  */
+
+
 class User {
-	static transients = ['pass']
+
+        def searchable = true;
+
+        static transients = ['pass']
 	static hasMany = [authorities: Role,  articles:Article, recipes:Recipe, comments:Comment]
 	static belongsTo = Role
 
