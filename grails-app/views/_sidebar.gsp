@@ -5,7 +5,7 @@
     <div class="Panel">
       <h1>Moje konto</h1>
       <g:isLoggedIn>
-        Zalogowany jako ${currentUser().username}
+        <%-- Zalogowany jako ${currentUser.username} --%>
         <g:link controller="logout">Wyloguj</g:link>
       </g:isLoggedIn>
       <g:isNotLoggedIn>

@@ -1,10 +1,15 @@
 package wegetarianice
 
 class MainController {
-
-  def index = { }
-
-  def authenticateService
-  def currentUser = authenticateService.principal()
   
+  def authenticateService
+
+  def index = {
+    def currentUser = currentUser()
+    [currentUser : currentUser]
+  }
+  
+  def currentUser() {
+    return authenticateService.principal()
+  }
 }

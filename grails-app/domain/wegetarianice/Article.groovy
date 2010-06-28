@@ -7,6 +7,7 @@ class Article {
   String title
   String description
   String body
+  String slug
   Date dateCreated
   Date lastUpdated
   static hasMany =[comments:Comment]
@@ -17,5 +18,10 @@ class Article {
     description(nullable: true)
     body(blank: false)
     lastUpdated(nullable: true)
+    slug(nullable: true)
+  }
+
+  boolean isOwnedBy(User user) {
+    return true
   }
 }

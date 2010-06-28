@@ -44,6 +44,7 @@ class ArticleController {
     }
 
     def create = {
+        @Secured(['ROLE_ADMIN'])
         def article = new Article()
         article.properties = params
         return [article: article]
@@ -51,9 +52,10 @@ class ArticleController {
 
     def save = {
         def article = new Article(params)
+        article.slug = article.name.toLowerCase().replaceAll(" ", "-").replaceAll(/[^\sA-Za-z-0-9]/, "")
         if (article.save(flush: true)) {
-            flash.message = "${message(code: 'default.created.message', args: [message(code: 'article.label', default: 'Article'), article.id])}"
-            redirect(action: "show", id: article.id)
+          flash.message = "${message(code: 'default.created.message', args: [message(code: 'article.label', default: 'Article'), article.id])}"
+          redirect(action: "show", id: article.id)
         }
         else {
             render(view: "create", model: [article: article])

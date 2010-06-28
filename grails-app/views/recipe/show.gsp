@@ -8,16 +8,17 @@
     <title><g:message code="default.show.label" args="[entityName]" /></title>
   </head>
   <body>
-    <g:isLoggedIn>
-      <%= link(action:'create') { 'Dodaj nowy przepis' }%>
-    </g:isLoggedIn>
-    <div class="panel">
-			<h1>${recipeInstance.name}</h1>
-      <h2>${recipeInstance.user.username}</h2>
+    <div class="Panel">
+      <g:isLoggedIn>
+        <%= link(action:'create') { 'Dodaj nowy przepis' }%>
+      </g:isLoggedIn>
+
+			<h1>${recipe.name}</h1>
+      <h2>${recipe.user.username}</h2>
       <div class="Image">
-        <img src="${resource(dir:'images',file:'ImageStu.png')}" alt="${recipeInstance.name}" />
+        <img src="${resource(dir:'images',file:'ImageStu.png')}" alt="${recipe.name}" />
       </div>
-      ${recipeInstance.body}
+      ${recipe.body}
     </div>
   </body>
 </html>
