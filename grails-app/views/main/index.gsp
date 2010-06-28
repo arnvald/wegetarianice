@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@page contentType="text/html;charset=UTF-8" %>
+<%@page import="wegetarianice.RecipeService"%>
 
 <html>
   <head>
@@ -28,14 +29,18 @@
       <div class="SmallPanel">
         <h1>Najnowsze przepisy</h1>
         <ul>
-          <li>Tu będą wszystkie nowe przepisy</li>
+          <g:each in="${RecipeService.newest()}" var="recipe" >
+            <li><g:link controller="recipe" action="show" id="recipe.slug">${recipe.name}</g:link></li>
+          </g:each>
         </ul>
       </div>
 
       <div class="SmallPanel">
         <h1>Popularne przepisy</h1>
         <ul>
-          <li>Tu będą wszystkie popularne przepisy</li>
+          <g:each in="${RecipeService.popular()}" var="recipe">
+            <li><g:link controller="recipe" action="show" id="${recipe.slug}">${recipe.name}</g:link></li>
+          </g:each> 
         </ul>
       </div>
 

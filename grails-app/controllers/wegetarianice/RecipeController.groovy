@@ -2,6 +2,8 @@ package wegetarianice
 
 class RecipeController {
 
+  def beforeInterceptor = [action:this.&setSlug,only:['save']]
+
   def index = {
     redirect(action: "list", params: params)
   }
@@ -48,7 +50,7 @@ class RecipeController {
   }
 
   def show = {
-    def recipeInstance = Recipe.get(params.id)
+    def recipeInstance = Recipe.findBySlug(params.id)
     if (!recipeInstance) {
       flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'recipe.label', default: 'Recipe'), params.id])}"
       redirect(action: "list")
@@ -59,7 +61,7 @@ class RecipeController {
   }
 
   def edit = {
-    def recipeInstance = Recipe.get(params.id)
+    def recipeInstance = Recipe.findBySlug(params.id)
     if (!recipeInstance) {
       flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'recipe.label', default: 'Recipe'), params.id])}"
       redirect(action: "list")
@@ -70,47 +72,47 @@ class RecipeController {
   }
 
   def update = {
-    def recipeInstance = Recipe.get(params.id)
+    def recipeInstance = Recipe.findBySlug(params.id)
     if (recipeInstance) {
       if (params.version) {
         def version = params.version.toLong()
         if (recipeInstance.version > version) {
 
           recipeInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'recipe.label', default: 'Recipe')] as Object[], "Another user has updated this Recipe while you were editing")
-          render(view: "edit", model: [articleInstance: articleInstance])
+          render(view: "edit", model: [recipeInstance: recipeInstance])
           return
         }
       }
       recipeInstance.properties = params
       if (!recipeInstance.hasErrors() && recipeInstance.save(flush: true)) {
         flash.message = "${message(code: 'default.updated.message', args: [message(code: 'recipe.label', default: 'Recipe'), recipeInstance.id])}"
-        redirect(action: "show", id: articleInstance.id)
+        redirect(action: "show", id: recipeInstance.id)
       }
       else {
-        render(view: "edit", model: [articleInstance: articleInstance])
+        render(view: "edit", model: [recipeInstance: recipeInstance])
       }
     }
     else {
-      flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'article.label', default: 'Article'), params.id])}"
+      flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'recipe.label', default: 'Recipe'), params.id])}"
       redirect(action: "list")
     }
   }
 
   def delete = {
-    def articleInstance = Article.get(params.id)
-    if (articleInstance) {
+    def recipeInstance = Recipe.findBySlug(params.id)
+    if (recipeInstance) {
       try {
-        articleInstance.delete(flush: true)
-        flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'article.label', default: 'Article'), params.id])}"
+        recipeInstance.delete(flush: true)
+        flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'recipe.label', default: 'Recipe'), params.id])}"
         redirect(action: "list")
       }
       catch (org.springframework.dao.DataIntegrityViolationException e) {
-        flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'article.label', default: 'Article'), params.id])}"
+        flash.message = "${message(code: 'default.not.deleted.message', args: [message(code: 'recipe.label', default: 'Recipe'), params.id])}"
         redirect(action: "show", id: params.id)
       }
     }
     else {
-      flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'article.label', default: 'Article'), params.id])}"
+      flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'recipe.label', default: 'Recipe'), params.id])}"
       redirect(action: "list")
     }
   }
