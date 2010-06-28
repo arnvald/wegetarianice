@@ -6,5 +6,5 @@ class MainController {
 
   def authenticateService
   def currentUser = authenticateService.principal()
-  }
+  
 }
