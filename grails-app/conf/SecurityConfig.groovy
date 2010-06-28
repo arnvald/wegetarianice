@@ -17,7 +17,9 @@
         requestMapString = '''CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
 			  PATTERN_TYPE_APACHE_ANT
 			  /login/**=IS_AUTHENTICATED_ANONYMOUSLY
+                          /przepisy/dodaj**=IS_AUTHENTICATED_REMEMBERED
 			  /admin/**=ROLE_ADMIN
+                          /artykuly/dodaj/**
                           /role/**=IS_AUTHENTICATED_FULLY
 			'''
     useRequestMapDomainClass = false
