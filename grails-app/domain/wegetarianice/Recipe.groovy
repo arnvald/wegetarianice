@@ -19,8 +19,4 @@ class Recipe {
     description(nullable: true)
     slug(nullable:true)
   }
-
-  def setSlug = {
-    this.slug = name.toLowerCase().replaceAll(" ", "-").replaceAll(/[^\sA-Za-z-0-9]/, "")
-  }
 }

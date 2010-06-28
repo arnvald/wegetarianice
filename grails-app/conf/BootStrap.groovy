@@ -4,7 +4,7 @@ class BootStrap {
 
 
 
-     def init = { /*servletContext ->
+     def init = { /* servletContext ->
         //obydwa hasla to test1234
 
         def role = new Role(authority: 'ROLE_ADMIN', description: 'Admin role')
@@ -22,9 +22,9 @@ class BootStrap {
   //     admin.save()
    //    user.save()
 
-        def articleA = new Article (title:"tytul artykulu1", description:"opis artyuku", body:"cialo artkulu")
-        def articleB = new Article (title:"tytul artykulu2", description:"opis artyuku", body:"cialo artkulu")
-        def articleC = new Article (title:"tytul artykulu3", description:"opis artyuku", body:"cialo artkulu")
+        def articleA = new Article (title:"tytul artykulu1", description:"opis artyuku", body:"cialo artkulu", slug:"tytul-artykulu1")
+        def articleB = new Article (title:"tytul artykulu2", description:"opis artyuku", body:"cialo artkulu", slug:"tytul-artykulu2")
+        def articleC = new Article (title:"tytul artykulu3", description:"opis artyuku", body:"cialo artkulu", slug:"tytul-artykulu3")
 
         def categoryA = new ArticleCategory(name:"Filozofia",description:"artykuly o filozofi odrzywiania").save()
         def categoryB = new ArticleCategory(name:"Zdrowie",description:"artykuly o zdrowym odzywianiu i wpływie rezygnacji z jedzenia mięsa na zdrowie").save()
@@ -61,10 +61,10 @@ class BootStrap {
 //
 //
 //
-        def recipeCategoryA = new RecipeCategory(name:"Sniadnia",description:"sniadaniowe").save()
-        def recipeCategoryB = new RecipeCategory(name:"Obiady",description:"obiadowe").save()
-        def recipe1 = new Recipe(body:"wez tamot wrzuc tu potem sie wal na ryj",name:"kotlet z dupy",description:"smakowe")
-        def recipe2 = new Recipe(body:"wez tamot wrzuc tu xxpotem sie wal na ryj",name:"daaanie",description:"smakowe")
+        def recipeCategoryA = new RecipeCategory(name:"Sniadnia",description:"sniadaniowe", slug:"sniadania").save()
+        def recipeCategoryB = new RecipeCategory(name:"Obiady",description:"obiadowe", slug:"obiady").save()
+        def recipe1 = new Recipe(body:"wez tamot wrzuc tu potem sie wal na ryj",name:"kotlet z dupy",description:"smakowe", slug:"kotlet-z-dupy")
+        def recipe2 = new Recipe(body:"wez tamot wrzuc tu xxpotem sie wal na ryj",name:"daaanie",description:"smakowe", slug:"daaanie")
         def ingredient = new Ingredient(priority:5, quantity:5)
         def ingredient2 = new Ingredient(priority:4, quantity:5)
         user.addToRecipes(recipe1)
@@ -113,7 +113,7 @@ class BootStrap {
 //        recipe1.save()
 //        recipe2.save() 
 
-   */  }
+     */}
 
 
      def destroy = {

@@ -30,7 +30,7 @@
         <h1>Najnowsze przepisy</h1>
         <ul>
           <g:each in="${RecipeService.newest()}" var="recipe" >
-            <li><g:link controller="recipe" action="show" id="recipe.slug">${recipe.name}</g:link></li>
+            <li><g:link controller="recipe" action="show" id="${recipe.slug}">${recipe.name}</g:link></li>
           </g:each>
         </ul>
       </div>

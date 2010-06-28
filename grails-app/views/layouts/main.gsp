@@ -3,7 +3,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8;charset=utf-8" />
-	<title>Wegetarianice - twoja stara</title>
+	<title>Wegetarianice</title>
   <link rel="stylesheet" href="${resource(dir:'css',file:'style.css')}" />
   <link rel="shortcut icon" href="${resource(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
   <g:layoutHead />
@@ -27,10 +27,10 @@
 		<div id="MainMenuContainer">
 			<div id="MenuContainer">
 				<ul class="MainMenu">
-          <li><g:link controller="main" class="Home"/></li>
-          <li><g:link controller="recipe" class="Recipes" /></li>
-          <li><g:link controller="article" class="Knowledge"/></li>
-          <li><g:link controller="searchable" class="Search"/></li>
+          <li><g:link controller="main" action="list" class="Home"/></li>
+          <li><g:link controller="recipe" action="list" class="Recipes" /></li>
+          <li><g:link controller="article" action="list" class="Knowledge"/></li>
+          <li><g:link controller="searchable" action="list" class="Search"/></li>
           <li><g:link controller="pages" class="Contact"/></li>
 				</ul>
 			</div>

@@ -2,9 +2,7 @@ package wegetarianice
 
 class RecipeController {
 
-  def beforeInterceptor = [action:this.&setSlug,only:['save']]
   def searchableService
-
 
   def index = {
     redirect(action: "list", params: params)
@@ -51,72 +49,74 @@ class RecipeController {
            redirect (action : "list")
         }
 
-        
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
+        [recipeList:list,recipeTotal:total]
     }
 
   def list = {
     params.max = Math.min(params.max ? params.int('max') : 10, 100)
-    [recipeInstanceList: Recipe.list(params), recipeInstanceTotal: Recipe.count()]
+    [recipeList: Recipe.list(params), recipeTotal: Recipe.count()]
   }
 
   def create = {
-    def recipeInstance = new Recipe()
-    recipeInstance.properties = params
-    return [recipeInstance: recipeInstance]
+    def recipe = new Recipe()
+    recipe.properties = params
+    return [recipe: recipe]
   }
 
   def save = {
-    def recipeInstance = new Recipe(params)
-    if (recipeInstance.save(flush: true)) {
-        flash.message = "${message(code: 'default.created.message', args: [message(code: 'recipe.label', default: 'Recipe'), recipeInstance.id])}"
-        redirect(action: "show", id: recipeInstance.id)
+    def recipe = new Recipe(params)
+    recipe.slug = recipe.name.toLowerCase().replaceAll(" ", "-").replaceAll(/[^\sA-Za-z-0-9]/, "")
+    if (recipe.save(flush: true)) {
+        flash.message = "${message(code: 'default.created.message', args: [message(code: 'recipe.label', default: 'Recipe'), recipe.id])}"
+        redirect(action: "show", id: recipe.id)
     }
     else {
-        render(view: "create", model: [recipeInstance: recipeInstance])
+        render(view: "create", model: [recipe: recipe])
     }
   }
 
   def show = {
-    def recipeInstance = Recipe.findBySlug(params.id)
-    if (!recipeInstance) {
+    def recipe = Recipe.findBySlug(params.id)
+    if (!recipe) {
       flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'recipe.label', default: 'Recipe'), params.id])}"
       redirect(action: "list")
     }
     else {
-      [recipeInstance: recipeInstance]
+      [recipe: recipe]
     }
   }
 
   def edit = {
-    def recipeInstance = Recipe.findBySlug(params.id)
-    if (!recipeInstance) {
+    def recipe = Recipe.findBySlug(params.id)
+    if (!recipe) {
       flash.message = "${message(code: 'default.not.found.message', args: [message(code: 'recipe.label', default: 'Recipe'), params.id])}"
       redirect(action: "list")
     }
     else {
-      return [recipeInstance: recipeInstance]
+      return [recipe: recipe]
     }
   }
 
   def update = {
-    def recipeInstance = Recipe.findBySlug(params.id)
-    if (recipeInstance) {
+    def recipe = Recipe.findBySlug(params.id)
+    if (recipe) {
       if (params.version) {
         def version = params.version.toLong()
-        if (recipeInstance.version > version) {
+        if (recipe.version > version) {
 
-          recipeInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'recipe.label', default: 'Recipe')] as Object[], "Another user has updated this Recipe while you were editing")
-          render(view: "edit", model: [recipeInstance: recipeInstance])
+          recipe.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'recipe.label', default: 'Recipe')] as Object[], "Another user has updated this Recipe while you were editing")
+          render(view: "edit", model: [recipe: recipe])
           return
         }
       }
-      recipeInstance.properties = params
-      if (!recipeInstance.hasErrors() && recipeInstance.save(flush: true)) {
-        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'recipe.label', default: 'Recipe'), recipeInstance.id])}"
-        redirect(action: "show", id: recipeInstance.id)
+      recipe.properties = params
+      if (!recipe.hasErrors() && recipe.save(flush: true)) {
+        flash.message = "${message(code: 'default.updated.message', args: [message(code: 'recipe.label', default: 'Recipe'), recipe.id])}"
+        redirect(action: "show", id: recipe.id)
       }
       else {
-        render(view: "edit", model: [recipeInstance: recipeInstance])
+        render(view: "edit", model: [recipe: recipe])
       }
     }
     else {
@@ -126,10 +126,10 @@ class RecipeController {
   }
 
   def delete = {
-    def recipeInstance = Recipe.findBySlug(params.id)
-    if (recipeInstance) {
+    def recipe = Recipe.findBySlug(params.id)
+    if (recipe) {
       try {
-        recipeInstance.delete(flush: true)
+        recipe.delete(flush: true)
         flash.message = "${message(code: 'default.deleted.message', args: [message(code: 'recipe.label', default: 'Recipe'), params.id])}"
         redirect(action: "list")
       }
