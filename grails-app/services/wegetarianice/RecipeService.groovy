@@ -9,7 +9,7 @@ class RecipeService {
     }
 
     def static newest() {
-      def recipes = Recipe.list(sort:"createdAt", order:"desc", max:10)
+      def recipes = Recipe.list(sort:"dateCreated", order:"desc", max:10)
       return recipes
     }
 
