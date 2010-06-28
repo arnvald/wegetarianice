@@ -1,6 +1,9 @@
 package wegetarianice
 
 class Food {
+
+  static searchable = true
+
   String name
 
   static hasMany = [ingredients:Ingredient]

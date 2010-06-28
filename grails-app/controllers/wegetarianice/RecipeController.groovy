@@ -3,6 +3,8 @@ package wegetarianice
 class RecipeController {
 
   def beforeInterceptor = [action:this.&setSlug,only:['save']]
+  def searchableService
+
 
   def index = {
     redirect(action: "list", params: params)
@@ -15,16 +17,41 @@ class RecipeController {
   def table = ["description","title"]
 
     def find = {
+        
+        def list
         def recipeSet
-        def listOfProperties = [];
 
-            recipeSet = Recipe.search(params["searchByContent"],escape:true)
 
-        def total = recipeSet.total
-        def list  = recipeSet.results
+        if(params.radioRecipeSearch != '2') {
+            recipeSet = Recipe.search(params["searchByContent"],escape:true,operator:"OR")
+            list  = recipeSet.results
+            list.each ({ item -> item.user =  Recipe.get(item.id).user  })
+            [recipeInstanceList:list]
+        }
+        else {
+           String a =   (params["searchByIngridient"])
+           def lst =  a.split(",")
+           def foodList = Food.findAll("from Food as b where b.name in (:foods)", [foods:lst] )
+           def ingredientList = Ingredient.findAll("from Ingredient as b where b.food in (:foods)", [foods:foodList] )
+           def resultMap = [:]
+           def c = 0
+            ingredientList.each({
+                
+              if(resultMap.get(it.recipe) == null) {
+               resultMap.put(it.recipe,it.priority)
+              }
+              else {
+               resultMap[it.recipe] =  resultMap[it.recipe] + it.priority
+              }   
+                    
+            })
 
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [recipeInstanceList:list,recipeTotal:total]
+           resultMap.each({println "${it.key} ${it.value}"  })
+          
+           redirect (action : "list")
+        }
+
+        
     }
 
   def list = {

@@ -8,20 +8,22 @@
     <title><g:message code="default.show.label" args="[entityName]" /></title>
   </head>
   <body>
+    <div class="Panel">
       <g:each in="${recipeInstanceList}" status="i" var="recipeInstance">
         <div class="SmallPanel">
-          <h1><g:link action="show" id="${recipeInstance.id}">${recipeInstance.name}</g:link></h1>
+          <%//recipeInstance = Recipe.get(recipeInstance.id)%>
+          <h1><g:link action="show" id="${recipeInstance.slug}">${recipeInstance.name}</g:link></h1>
           <h2>Dodał: <g:link action="show" controller="user" id="${recipeInstance.user.id}">
               ${recipeInstance.user.username}
-          </g:link></h2>
-          <div class="SubsectionImage">
+          </g:link></h2
+         <div class="SubsectionImage">
             <img src="${resource(dir:'images',file:'ImageStu.png')}" alt="${recipeInstance.name}" />
           </div>
           <div class="SubsectionCategories">
             Kategorie: <a href="">Lorem ipsum</a>, <a href="">Lorem ipsum</a>, <a href="">Lorem ipsum</a>
           </div>
         </div>
-      </g:each>
+     </g:each>
     </div>
   </body>
 </html>
