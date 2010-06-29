@@ -27,7 +27,7 @@
 		<div id="MainMenuContainer">
 			<div id="MenuContainer">
 				<ul class="MainMenu">
-          <li><g:link controller="main" action="list" class="Home"/></li>
+          <li><g:link controller="main" action="index" class="Home"/></li>
           <li><g:link controller="recipe" action="list" class="Recipes" /></li>
           <li><g:link controller="article" action="list" class="Knowledge"/></li>
           <li><g:link controller="searchable" action="list" class="Search"/></li>

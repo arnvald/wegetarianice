@@ -18,7 +18,7 @@
       <div class="Image">
         <img src="${resource(dir:'images',file:'ImageStu.png')}" alt="${recipe.name}" />
       </div>
-      ${recipe.body}
+      ${recipe.body.decodeHTML()}
     </div>
   </body>
 </html>

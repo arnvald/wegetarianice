@@ -37,7 +37,7 @@ class LoginController {
 			redirect uri: '/'
 		}
 		else {
-			redirect action: auth, params: params
+      redirect action: auth, params: params
 		}
 	}
 
@@ -69,6 +69,7 @@ class LoginController {
 			postUrl = "${request.contextPath}${config.filterProcessesUrl}"
 		}
 
+    redirect(controller:'main', action:'index')
 		render view: view, model: [postUrl: postUrl]
 	}
 

@@ -9,12 +9,9 @@
   </head>
 
   <body>
-    <g:isLoggedIn>
-      <%= link(action:'create') { 'Dodaj nowy przepis' }%>
-    </g:isLoggedIn>
-
     <div class="Panel">
-      <g:each in="${recipeList}" status="i" var="recipe">
+      <h1>${recipeCategory.name}</h1>
+      <g:each in="${recipeCategory.recipes}" status="i" var="recipe">
         <div class="SmallPanel">
           <h1><g:link action="show" id="${recipe.slug}">${recipe.name}</g:link></h1>
           <h2>Dodał: <g:link action="show" controller="user" id="${recipe.user.id}">

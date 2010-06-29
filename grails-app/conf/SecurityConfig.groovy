@@ -15,6 +15,7 @@
         //a tyklo zalogowani to pewnych szczegolnych wlasciwosci zwiazanych ze swoim panelem
 
         requestMapString = '''CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+<<<<<<< HEAD:grails-app/conf/SecurityConfig.groovy
      PATTERN_TYPE_APACHE_ANT
 
     /artykuly/nowy/**=IS_AUTHENTICATED_REMEMBERED
@@ -46,6 +47,7 @@
     /artykuly/kategorie/edytuj/**=ROLE_ADMIN
     /artykuly/kategorie/zaktualizuj/**=ROLE_ADMIN
     /artykuly/kategorie/usun/**=ROLE_ADMIN
+
 
 			'''
     useRequestMapDomainClass = false
