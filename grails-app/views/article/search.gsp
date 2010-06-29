@@ -13,7 +13,7 @@
             <span class="menuButton"><g:link class="list" action="list"><g:message code="default.list.label" args="[entityName]" /></g:link></span>
         </div>
         <div class="body">
-          <g:form action="find" method="get" >
+          <g:form action="find" method="post" >
                 <div class="dialog">
                     <table>
                         <tbody>

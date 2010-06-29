@@ -10,7 +10,9 @@ class UrlMappings {
     "/artykuly/zaktualizuj/$id"(controller:"article", action:"update")
     "/artykuly/$id"(controller: "article", action:"show")
     "/artykuly/usun/$id"(controller: "article", action:"destroy")
-
+    "/artykuly/szukaj"(controller: "article", action:"search")
+    "/artykuly/znalezione"(controller: "article", action:"find")
+        
     /* === recipes === */
     "/przepisy"(controller:"recipe", action:"list")
     "/przepisy/nowy"(controller:"recipe", action:"create")
@@ -41,6 +43,7 @@ class UrlMappings {
     /* === articleCategories === */
     "/artykuly/kategorie"(controller:"articleCategory", action:"list")
     "/artykuly/kategorie/nowa"(controller:"articleCategory", action:"create")
+
     "/artykuly/kategorie/utworz"(controller:"articleCategory", action:"save")
     "/artykuly/kategorie/edytuj/$id"(controller:"articleCategory", action:"edit")
     "/artykuly/kategorie/zaktualizuj/$id"(controller:"articleCategory", action:"update")
