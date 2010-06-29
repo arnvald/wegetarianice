@@ -43,14 +43,18 @@ class RecipeController {
               }   
                     
             })
+           resultMap.sort {it.value}
+           
 
-           resultMap.each({println "${it.key} ${it.value}"  })
-          
-           redirect (action : "list")
+           def resultList = []
+           resultMap.each({resultList.add(it.key)})
+           def revResult = []
+           for(int i = resultList.size(); i>0; i--) {
+               revResult.add(resultList.get(i-1))
+           }
+
+               [recipeInstanceList:revResult]
         }
-
-        params.max = Math.min(params.max ? params.int('max') : 10, 100)
-        [recipeList:list,recipeTotal:total]
     }
 
   def list = {

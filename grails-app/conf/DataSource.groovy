@@ -14,7 +14,7 @@ environments {
 	development {
              dataSource {
                    dbCreate = "update"
-                   url = "jdbc:mysql://localhost/wegetarianiceDB??useUnicode=true&characterEncoding=UTF-8"
+                   url = "jdbc:mysql://localhost/wegetarianiceDB"
                    driverClassName = "com.mysql.jdbc.Driver"
                    dialect ="org.hibernate.dialect.MySQLDialect"
                    username = "root"

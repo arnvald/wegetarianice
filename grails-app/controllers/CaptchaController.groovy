@@ -96,7 +96,7 @@ class CaptchaController {
 		OutputStream out = response.getOutputStream()
 		ImageIO.write(bufferedImage, 'PNG', out)
 		out.close()
-        println "captch"
+                println "captch"
 		session.setAttribute('captcha', b.toString())
 	}
 }

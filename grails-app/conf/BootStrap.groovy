@@ -4,7 +4,7 @@ class BootStrap {
 
 
 
-     def init = { /* servletContext ->
+     def init = {  servletContext ->
         //obydwa hasla to test1234
 
         def role = new Role(authority: 'ROLE_ADMIN', description: 'Admin role')
@@ -110,10 +110,10 @@ class BootStrap {
 //
 //        recipeCategoryA.save()
 //        recipeCategoryB.save()
-//        recipe1.save()
-//        recipe2.save() 
+///        recipe1.save()
+//       recipe2.save()
 
-     */}
+     }
 
 
      def destroy = {
