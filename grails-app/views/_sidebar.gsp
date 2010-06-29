@@ -5,20 +5,20 @@
     <div class="Panel">
       <h1>Moje konto</h1>
       <g:isLoggedIn>
-        <%-- Zalogowany jako ${currentUser.username} --%>
+        Zalogowany jako <g:loggedInUserInfo field="username"/>
         <g:link controller="logout">Wyloguj</g:link>
       </g:isLoggedIn>
       <g:isNotLoggedIn>
       <h2>Witaj nieznajomy!</h2>
-      <form action="${request.contextPath}/j_spring_security_check" method="Post">
-        <g:textField id="j_username" name="j_username" value="Login" class="AutoClearInput Custom" />
-        <g:passwordField id="j_password" name="j_password" value="Hasło" class="AutoClearInput CustomWithIconSmall" />
-        <input type="button" class="IconSmall QuestionIcon" value="" />
-        <div style="clear: both;"></div>
-				<g:checkBox class="Custom" name="RememberMe" value="True" />Pamiętaj mnie<br /><br />
-        <g:submitButton class="Custom" value="Zaloguj" name="Login" />
-        <g:submitButton class="Custom" value="Zarejestruj" name="Register"/>
-      </form>
+        <form action="${request.contextPath}/j_spring_security_check" method="Post">
+          <g:textField id="j_username" name="j_username" value="Login" class="AutoClearInput Custom" />
+          <g:passwordField id="j_password" name="j_password" value="Hasło" class="AutoClearInput CustomWithIconSmall" />
+          <input type="button" class="IconSmall QuestionIcon" value="" />
+          <div style="clear: both;"></div>
+          <g:checkBox class="Custom" name="RememberMe" value="True" />Pamiętaj mnie<br /><br />
+          <g:submitButton class="Custom" value="Zaloguj" name="Login" />
+          <g:submitButton class="Custom" value="Zarejestruj" name="Register"/>
+        </form>
       </g:isNotLoggedIn>
     </div>
 
@@ -26,7 +26,7 @@
       <h1>Kategorie</h1>
       <ul class="Menu">
         <g:each in="${RecipeCategory.getAll()}" var="category">
-          <li> <g:link controller="RecipeCategory" action="show" id="${category.id}"> ${category.name} </g:link> </li>
+          <li> <g:link controller="RecipeCategory" action="show" id="${category.slug}"> ${category.name} </g:link> </li>
         </g:each>
       </ul>
     </div>

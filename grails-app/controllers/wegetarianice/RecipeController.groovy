@@ -3,6 +3,7 @@ package wegetarianice
 class RecipeController {
 
   def searchableService
+  def authenticateService
 
   def index = {
     redirect(action: "list", params: params)

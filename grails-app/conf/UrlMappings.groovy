@@ -16,7 +16,7 @@ class UrlMappings {
     "/przepisy/nowy"(controller:"recipe", action:"create")
     "/przepisy/utworz"(controller:"recipe", action:"save")
     "/przepisy/edytuj/$id"(controller:"recipe", action:"edit")
-    "/przepisy/zaktualizuj/$id"(controller:"recipe", action:"update")
+    "/przepisy/zaktualizuj"(controller:"recipe", action:"update")
     "/przepisy/$id"(controller: "recipe", action:"show")
     "/przepisy/usun/$id"(controller: "recipe", action:"destroy")
 
@@ -41,15 +41,16 @@ class UrlMappings {
     /* === articleCategories === */
     "/artykuly/kategorie"(controller:"articleCategory", action:"list")
     "/artykuly/kategorie/nowa"(controller:"articleCategory", action:"create")
-    "/artykuly/kategorie/utworz/$id"(controller:"articleCategory", action:"save")
+    "/artykuly/kategorie/utworz"(controller:"articleCategory", action:"save")
     "/artykuly/kategorie/edytuj/$id"(controller:"articleCategory", action:"edit")
     "/artykuly/kategorie/zaktualizuj/$id"(controller:"articleCategory", action:"update")
     "/artykuly/kategorie/$id"(controller: "articleCategory", action:"show")
     "/artykuly/kategorie/usun/$id"(controller: "articleCategory", action:"destroy")
 
-    "/wyloguj/$action?/$id?"(controller:"logout")
-    "/zaloguj/$action?/$id?"(controller:"login")
-    "/rejestracja/$action?/$id?"(controller:"register")
+    "/wyloguj"(controller:"logout")
+    "/zaloguj"(controller:"login", action:"auth")
+    "/rejestracja"(controller:"register")
+    "/rejestracja/zakoncz"(controller:"register",action:"save")
     "/strony/$action?/$id?"(controller:"page")
     "/kontakt"(view:"/pages/contact")
 

@@ -44,7 +44,6 @@ class ArticleController {
     }
 
     def create = {
-        @Secured(['ROLE_ADMIN'])
         def article = new Article()
         article.properties = params
         return [article: article]

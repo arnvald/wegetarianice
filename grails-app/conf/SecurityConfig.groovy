@@ -18,6 +18,7 @@
 			  PATTERN_TYPE_APACHE_ANT
 			  /login/**=IS_AUTHENTICATED_ANONYMOUSLY
                           /przepisy/dodaj**=IS_AUTHENTICATED_REMEMBERED
+        /przepisy/nowy/**=IS_AUTHENTICATED_REMEMBERED
 			  /admin/**=ROLE_ADMIN
                           /artykuly/dodaj/**
                           /role/**=IS_AUTHENTICATED_FULLY

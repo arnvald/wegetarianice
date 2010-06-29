@@ -7,9 +7,9 @@
       <g:renderErrors bean="${recipe}" as="list" />
   </div>
 </g:hasErrors>
-
-<g:form action="save" method="post" >
+<g:form action="${actionName == 'create' ? 'save' : 'update'}" method="post" >
   <label for="name">Nazwa</label>
+  <g:hiddenField name="id" value="${recipe?.slug}" />
   <g:textField name="name" value="${recipe?.name}" class="Custom" />
   <label for="body">Treść</label>
   <fckeditor:editor
@@ -23,5 +23,5 @@
   <label for="category">Kategoria</label>
   <g:select name="category.id" from="${wegetarianice.RecipeCategory.list()}" optionKey="id" value="${recipe?.category?.id}"  />
   <g:hiddenField name="user_id" value="1" />
-  <span class="button"><g:submitButton name="create" class="save Custom" value="Utwórz" /></span>
+  <span class="button"><g:submitButton name="create" class="save Custom" value="Zapisz" /></span>
 </g:form>
