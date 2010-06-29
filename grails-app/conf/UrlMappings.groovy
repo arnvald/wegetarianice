@@ -55,6 +55,7 @@ class UrlMappings {
     "/kontakt"(view:"/pages/contact")
 
     "/"(controller:"main", action:"index")
+    "/captcha"(controller:"captcha", action:"index")
     "500"(view:'/error')
     "404"(view:'/pages/404')
 	}
