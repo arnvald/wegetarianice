@@ -41,6 +41,7 @@ class UrlMappings {
     /* === articleCategories === */
     "/artykuly/kategorie"(controller:"articleCategory", action:"list")
     "/artykuly/kategorie/nowa"(controller:"articleCategory", action:"create")
+
     "/artykuly/kategorie/utworz"(controller:"articleCategory", action:"save")
     "/artykuly/kategorie/edytuj/$id"(controller:"articleCategory", action:"edit")
     "/artykuly/kategorie/zaktualizuj/$id"(controller:"articleCategory", action:"update")

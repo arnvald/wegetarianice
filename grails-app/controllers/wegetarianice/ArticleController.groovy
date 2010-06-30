@@ -29,7 +29,7 @@ class ArticleController {
         if(params.similar)
             articleSet = Article.search("*"+params["query"]+"*",escape:false,properties:listOfProperties)
         else
-            articleSet = Article.search(params["query"],escape:true,properties:listOfProperties)
+            articleSet = Article.search(params["query"],escape:true,properties:listOfProperties,defaultOperator: "or")
 
         def total = articleSet.total
         def list  = articleSet.results
