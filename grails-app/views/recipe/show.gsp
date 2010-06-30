@@ -18,7 +18,11 @@
       <div class="Image">
         <img src="${resource(dir:'images',file:'ImageStu.png')}" alt="${recipe.name}" />
       </div>
+   
       ${recipe.body.decodeHTML()}
     </div>
+  <g:each var="i" in="${similar()}">
+    <p>${i}</p>
+  </g:each>
   </body>
 </html>

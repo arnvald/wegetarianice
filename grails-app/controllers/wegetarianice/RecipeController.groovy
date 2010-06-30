@@ -15,6 +15,20 @@ class RecipeController {
 
   def table = ["description","title"]
 
+    def   similar(int id) {
+
+        def list = Recipe.search("${Recipe.get(id).name}",escape:true,operator:"or",properties:["name"])
+        def result = []
+        list.each({
+                 if(it.id != id)
+                 result.add(Recipe.get(it.id))
+            }
+         )
+         return result
+
+    }
+
+
     def find = {
         
         def list
@@ -22,7 +36,7 @@ class RecipeController {
 
 
         if(params.radioRecipeSearch != '2') {
-            recipeSet = Recipe.search(params["searchByContent"],escape:true,operator:"OR")
+            recipeSet = Recipe.search(params["searchByContent"],escape:true,operator:"or")
             list  = recipeSet.results
             list.each ({ item -> item.user =  Recipe.get(item.id).user  })
             [recipeInstanceList:list]
