@@ -8,6 +8,7 @@
     <title><g:message code="default.show.label" args="[entityName]" /></title>
   </head>
   <body>
+    <g:render template="big" model="[recipe:recipe]" />
     <div class="Panel">
       <g:isLoggedIn>
         <%= link(action:'create') { 'Dodaj nowy przepis' }%>
@@ -20,8 +21,10 @@
       </div>
    
       ${recipe.body.decodeHTML()}
-    </div>
-  <g:each var="i" in="${similar()}">
+     <g:each in="${recipe.getSimilar()}" var="similar">
+        <g:render template="tiny" model="[recipe:similar]" />
+      </g:each>
+  </div>
     <p>${i}</p>
   </g:each>
   </body>

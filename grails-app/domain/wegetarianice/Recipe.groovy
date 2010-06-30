@@ -19,4 +19,15 @@ class Recipe {
     description(nullable: true)
     slug(nullable:true)
   }
+
+  def getSimilar() {
+    def set= Recipe.search(name,escape:true,operator:"or",properties:["name"])
+    def list = set.results
+    def result = []
+    list.each({
+      if(it.id != this.id)
+      result.add(Recipe.get(it.id))
+     })
+     return result
+  }
 }

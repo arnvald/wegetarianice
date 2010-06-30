@@ -30,7 +30,7 @@
           <li><g:link controller="main" action="index" class="Home"/></li>
           <li><g:link controller="recipe" action="list" class="Recipes" /></li>
           <li><g:link controller="article" action="list" class="Knowledge"/></li>
-          <li><g:link controller="searchable" action="list" class="Search"/></li>
+          <li><g:link controller="searchable" action="index" class="Search"/></li>
           <li><g:link controller="pages" class="Contact"/></li>
 				</ul>
 			</div>
