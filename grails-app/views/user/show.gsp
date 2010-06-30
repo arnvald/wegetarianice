@@ -14,13 +14,20 @@
 
     ${person.userRealName?.encodeAsHTML()}
     
-    <g:if test="${pserson.emailShow}">
+    <g:if test="${person.emailShow}">
       ${person.email?.encodeAsHTML()}
     </g:if>
-
-    <g:each in="${roleNames}" var='name'>
-      <li>${name}</li>
-    </g:each>
-
 	</div>
+  <div class="Panel">
+    <h1>Dodane przepisy</h1>
+    <g:each in="${person.recipes}" var="recipe">
+      <g:render template="/recipe/tiny" model="[recipe:recipe]" />
+    </g:each>
+  </div>
+  <div class="Panel">
+    <h1>Dodane artykuły</h1>
+    <g:each in="${person.articles}" var="article">
+      <g:render template="/article/small" model="[article:article]" />
+    </g:each>
+  </div>
 </body>

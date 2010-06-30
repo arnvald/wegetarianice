@@ -22,6 +22,8 @@
   </fckeditor:editor>
   <label for="category">Kategoria</label>
   <g:select name="category.id" from="${wegetarianice.RecipeCategory.list()}" optionKey="id" value="${recipe?.category?.id}"  />
+  <label for="recipes">Składniki</label>
+  <g:textField name="ings" value="" />
   <g:hiddenField name="user_id" value="${loggedInUserInfo(field:'id')}" />
   <span class="button"><g:submitButton name="create" class="save Custom" value="Zapisz" /></span>
 </g:form>

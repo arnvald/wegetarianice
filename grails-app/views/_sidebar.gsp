@@ -26,7 +26,7 @@
       <h1>Kategorie</h1>
       <ul class="Menu">
         <g:each in="${RecipeCategory.getAll()}" var="category">
-          <li> <g:link controller="RecipeCategory" action="show" id="${category.slug}"> ${category.name} </g:link> </li>
+          <li> <g:link controller="recipeCategory" action="show" id="${category.slug}"> ${category.name} </g:link> </li>
         </g:each>
       </ul>
     </div>

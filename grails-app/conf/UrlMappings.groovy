@@ -10,6 +10,7 @@ class UrlMappings {
     "/artykuly/zaktualizuj/$id"(controller:"article", action:"update")
     "/artykuly/$id"(controller: "article", action:"show")
     "/artykuly/usun/$id"(controller: "article", action:"destroy")
+    "/artykuly/szukaj" (controller: "article", action:"find")
 
     /* === recipes === */
     "/przepisy"(controller:"recipe", action:"list")
@@ -19,8 +20,7 @@ class UrlMappings {
     "/przepisy/zaktualizuj"(controller:"recipe", action:"update")
     "/przepisy/$id"(controller: "recipe", action:"show")
     "/przepisy/usun/$id"(controller: "recipe", action:"destroy")
-    "/przepisy/szukaj" (controller: "recipe", action:"search")
-    "/przepisy/wyniki" (controller: "recipe", action:"find")
+    "/przepisy/szukaj" (controller: "recipe", action:"find")
     /* === recipeCategories=== */
     "/kategorie"(controller:"recipeCategory", action:"list")
     "/kategorie/nowa"(controller:"recipeCategory", action:"create")
@@ -51,6 +51,7 @@ class UrlMappings {
     "/zaloguj"(controller:"login", action:"auth")
     "/rejestracja"(controller:"register")
     "/rejestracja/zakoncz"(controller:"register",action:"save")
+    "/szukaj"(controller:"searchable", action:"index")
     "/strony/$action?/$id?"(controller:"page")
     "/kontakt"(view:"/pages/contact")
 

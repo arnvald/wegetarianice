@@ -70,8 +70,20 @@ class RecipeController {
   }
 
   def save = {
-    def recipe = new Recipe(params)
+    def ingredients = params['ings'].split(', ')
+    def recipe = new Recipe(body:params['body'],name:params['name'],user:User.get(params['user_id']),category:RecipeCategory.get(1))
     recipe.slug = recipe.name.toLowerCase().replaceAll(" ", "-").replaceAll(/[^\sA-Za-z-0-9]/, "")
+    recipe.save()
+    ingredients.each() {
+      def food = Food.findByName(it)
+      if(!food) {
+        food = new Food(name:it, food_id:1, unit_id:1)
+        food.save(flush: true)
+      }
+      def ingredient = new Ingredient(food_id:food.id, quantity:3, priority:5, recipe:recipe.id)
+      ingredient.save(flush: true)
+      ingredient.addToRecipe(recipe)
+    }
     if (recipe.save(flush: true)) {
         flash.message = "${message(code: 'default.created.message', args: [message(code: 'recipe.label', default: 'Recipe'), recipe.id])}"
         redirect(action: "show", id: recipe.id)
