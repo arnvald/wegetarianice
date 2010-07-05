@@ -7,7 +7,7 @@ class BootStrap {
      def init = {  servletContext ->
         //obydwa hasla to test1234
 
-       /* def role = new Role(authority: 'ROLE_ADMIN', description: 'Admin role')
+        def role = new Role(authority: 'ROLE_ADMIN', description: 'Admin role')
         def role2 = new Role(authority: 'ROLE_USER', description: 'User role')
         def admin = new User(username:"pejot",userRealName:"Filip",passwd:"9bc34549d565d9505b287de0cd20ac77be1d3f2c",email:"gowno@o2.pl",enabled:"true")
         def user = new User(username:"arnvald",userRealName:"Grzes",passwd:"9bc34549d565d9505b287de0cd20ac77be1d3f2c",email:"gowno@o2.pl",enabled:"true")
@@ -112,7 +112,7 @@ class BootStrap {
 //        recipeCategoryB.save()
 ///        recipe1.save()
 //       recipe2.save()
-*/
+
      }
 
 

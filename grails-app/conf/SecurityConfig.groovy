@@ -9,6 +9,7 @@
 	requestMapClass = "wegetarianice.Requestmap" //chyba niepotrzebne skoro zrobilismy to z palca
         authenticationFailureUrl="/zaloguj"
         loginFormUrl="/zaloguj"
+        errorPage="/"
 
         //apropo pisania z palca to chyba japrosciej bedzie
         //jak wezmiemy ze w ogolnosci wszyscy maja dostep do wszystkiego

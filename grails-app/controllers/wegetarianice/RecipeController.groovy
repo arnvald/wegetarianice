@@ -36,7 +36,7 @@ class RecipeController {
 
 
         if(params.radioRecipeSearch != '2') {
-            recipeSet = Recipe.search(params["searchByContent"],escape:true,operator:"or")
+            recipeSet = Recipe.search(params["searchByContent"],escape:true,defaultOperator:"or")
             list  = recipeSet.results
             list.each ({ item -> item.user =  Recipe.get(item.id).user  })
             [recipeInstanceList:list]
